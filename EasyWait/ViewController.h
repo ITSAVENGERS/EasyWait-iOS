@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
-
+@interface ViewController : UIViewController<UITextFieldDelegate>
+{
+    NSString *mNumber;
+    NSString *otpNum;
+    NSString *name;
+    NSMutableArray *array ;
+}
+@property (strong , nonatomic)NSDictionary *responseDict ;
+@property (strong , nonatomic)NSDictionary *verifyDict ;
+@property (strong , nonatomic)NSDictionary *nameDict ;
 @end
 
