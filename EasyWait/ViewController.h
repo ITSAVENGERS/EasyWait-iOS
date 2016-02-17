@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "APIBaseManager.h"
 
 @interface ViewController : UIViewController<UITextFieldDelegate>
 {
+    APIBaseManager *baseManager;
     NSString *mNumber;
-    NSString *otpNum;
     NSString *name;
     NSMutableArray *array ;
 }
