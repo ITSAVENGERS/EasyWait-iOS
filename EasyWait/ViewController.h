@@ -16,8 +16,5 @@
     NSString *name;
     NSMutableArray *array ;
 }
-@property (strong , nonatomic)NSDictionary *responseDict ;
-@property (strong , nonatomic)NSDictionary *verifyDict ;
-@property (strong , nonatomic)NSDictionary *nameDict ;
 @end
 

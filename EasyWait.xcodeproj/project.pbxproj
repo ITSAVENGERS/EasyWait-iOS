@@ -11,6 +11,7 @@
 		56EB286A1C72443400C9A8C9 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 56EB28691C72443400C9A8C9 /* APIManager.m */; };
 		56ED33381C73151400BF3274 /* APIBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 56ED33371C73151400BF3274 /* APIBaseManager.m */; };
 		56EFB85A1C3EEF710073CED9 /* NextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56EFB8591C3EEF710073CED9 /* NextViewController.m */; };
+		56F0A8B81C74F6EE00BC66C2 /* otpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F0A8B71C74F6EE00BC66C2 /* otpViewController.m */; };
 		56FA06A81C3E3A3F00511157 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FA06A71C3E3A3F00511157 /* main.m */; };
 		56FA06AB1C3E3A3F00511157 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FA06AA1C3E3A3F00511157 /* AppDelegate.m */; };
 		56FA06AE1C3E3A3F00511157 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FA06AD1C3E3A3F00511157 /* ViewController.m */; };
@@ -50,6 +51,8 @@
 		56ED33371C73151400BF3274 /* APIBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIBaseManager.m; sourceTree = "<group>"; };
 		56EFB8581C3EEF710073CED9 /* NextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextViewController.h; sourceTree = "<group>"; };
 		56EFB8591C3EEF710073CED9 /* NextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextViewController.m; sourceTree = "<group>"; };
+		56F0A8B61C74F6EE00BC66C2 /* otpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = otpViewController.h; sourceTree = "<group>"; };
+		56F0A8B71C74F6EE00BC66C2 /* otpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = otpViewController.m; sourceTree = "<group>"; };
 		56FA06A31C3E3A3F00511157 /* EasyWait.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyWait.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FA06A71C3E3A3F00511157 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		56FA06A91C3E3A3F00511157 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -140,6 +143,8 @@
 				56FA06AA1C3E3A3F00511157 /* AppDelegate.m */,
 				56FA06AC1C3E3A3F00511157 /* ViewController.h */,
 				56FA06AD1C3E3A3F00511157 /* ViewController.m */,
+				56F0A8B61C74F6EE00BC66C2 /* otpViewController.h */,
+				56F0A8B71C74F6EE00BC66C2 /* otpViewController.m */,
 				56EFB8581C3EEF710073CED9 /* NextViewController.h */,
 				56EFB8591C3EEF710073CED9 /* NextViewController.m */,
 				56A05E571C40B06600472FEA /* InfoViewController.h */,
@@ -454,6 +459,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56F0A8B81C74F6EE00BC66C2 /* otpViewController.m in Sources */,
 				56ED33381C73151400BF3274 /* APIBaseManager.m in Sources */,
 				56FA06AE1C3E3A3F00511157 /* ViewController.m in Sources */,
 				56EFB85A1C3EEF710073CED9 /* NextViewController.m in Sources */,
