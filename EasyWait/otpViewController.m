@@ -8,7 +8,12 @@
 
 #import "otpViewController.h"
 
-@interface otpViewController ()
+@interface otpViewController ()<BaseManagerProtocol>
+@property (weak, nonatomic) IBOutlet UITextField *otpTextFIeld;
+- (IBAction)VerifyBTN:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+- (IBAction)SetNameAndNextView:(id)sender;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityLoader;
 
 @end
 
@@ -16,12 +21,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    baseManager = [[APIBaseManager alloc]init];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /*
@@ -33,5 +37,24 @@
     // Pass the selected object to the new view controller.
 }
 */
+-(void)startLoader
+{
+    
+}
 
+-(void)stopLoader
+{
+    [self.activityLoader stopAnimating];
+}
+
+- (IBAction)VerifyBTN:(id)sender {
+     NSString *otpNum = self.otpTextFIeld.text;
+    [self.activityLoader startAnimating];
+    baseManager.Delegate = self;
+    [baseManager VerifyNumber:_myNumber AndOTP:otpNum];
+}
+- (IBAction)SetNameAndNextView:(id)sender {
+    NSString *name = self.nameTextField.text;
+    [baseManager RegisterNname:name];
+}
 @end

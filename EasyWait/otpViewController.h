@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "APIBaseManager.h"
 
-@interface otpViewController : UIViewController
-
+@interface otpViewController : UIViewController<UITextFieldDelegate>
+{
+    APIBaseManager *baseManager;
+}
+@property(strong,nonatomic)NSString *myNumber;
 @end

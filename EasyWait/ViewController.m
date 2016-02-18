@@ -7,9 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "NextViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <BaseManagerProtocol>
 @property (weak, nonatomic) IBOutlet UITextField *mobiletxtfield;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @end
@@ -19,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     baseManager = [[APIBaseManager alloc]init];
+    otpviewController = [[otpViewController alloc]init];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -40,24 +40,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)stopLoader
+{
+    [self.activityIndicator stopAnimating];
+    [self performSegueWithIdentifier:@"otpSegue" sender:self];
+}
+
+-(void)startLoader
+{
+    
+}
+
 - (IBAction)MobileBTN:(id)sender {
     [self.activityIndicator startAnimating];
     mNumber = self.mobiletxtfield.text;
-    NSLog(@"%@",mNumber);
-    [self performSegueWithIdentifier:@"otpSegue" sender:sender];
-    //[baseManager RegisterNumber:mNumber];
+    baseManager.Delegate = self;
+    otpviewController.myNumber = mNumber;
+    [baseManager RegisterNumber:mNumber];
 }
-
-- (IBAction)VerifyBTN:(id)sender {
-   // NSString *otpNum = self.veridyTxt.text;
-    //[baseManager VerifyNumber:mNumber AndOTP:otpNum];
-}
-
-- (IBAction)NameBTN:(id)sender {
-   // name=self.nameTY.text;
-    [baseManager RegisterNname:name];
-}
-
 
 //- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 //    NextViewController *nxt=[segue destinationViewController];

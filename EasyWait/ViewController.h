@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "APIBaseManager.h"
+#import "otpViewController.h"
 
 @interface ViewController : UIViewController<UITextFieldDelegate>
 {
@@ -15,6 +16,7 @@
     NSString *mNumber;
     NSString *name;
     NSMutableArray *array ;
+    otpViewController *otpviewController;
 }
 @end
 

@@ -27,6 +27,8 @@
     return self;
 }
 
+// Register your number
+
 -(void)RegisterNumber:(NSString *)number
 {
 //    NSDictionary *dict = @{@"User" : Vendor_EndPoint,@"End_Point" : Register_EndPoint,@"Mobile_Number" : number};
@@ -35,6 +37,8 @@
         if (wasSuccessful) {
             registerDict = dict;
             NSLog(@"%@",registerDict);
+            if([self.Delegate respondsToSelector:@selector(startLoader)])
+                [self.Delegate stopLoader];
         } else {
             NSLog(@"Error");
         }
@@ -44,11 +48,15 @@
                    withCallback:callback];
 }
 
+// Verify your number
+
 -(void)VerifyNumber:(NSString *)number AndOTP:(NSString *)otp
 {
     SuccessRequestBlockVerify callback = ^(BOOL wasSuccessful, NSDictionary *dict) {
         if (wasSuccessful) {
             token = dict[@"token"];
+            if([self.Delegate respondsToSelector:@selector(startLoader)])
+                [self.Delegate startLoader];
             [[NSUserDefaults standardUserDefaults] setValue:token forKey:@"token"];
         } else {
             NSLog(@"Error");
@@ -59,6 +67,7 @@
                           withCallback:callback];
 }
 
+// Set your name
 
 -(void)RegisterNname:(NSString *)name
 {
@@ -66,15 +75,35 @@
         [apiManager getRequest:dict];
 }
 
+// Turn to next
+
 -(void)NextTurn:(NSString *)myToken
 {
     NSDictionary *dict = @{@"User" : QStatus_EndPoint,@"End_Point" : Next_EndPoint,@"token" : myToken};
     [apiManager getRequestResetAndNext:dict];
 }
 
+// Reset your turn
+
 -(void)ResetTurn:(NSString *)myToken
 {
     NSDictionary *dict = @{@"User" : QStatus_EndPoint,@"End_Point" : Reset_EndPoint,@"token" : myToken};
+    [apiManager getRequestResetAndNext:dict];
+}
+
+// Public Information
+
+-(void)PublicInfo:(NSString *)number
+{
+    NSDictionary *dict = @{@"User" : QStatus_EndPoint,@"End_Point" : Reset_EndPoint,@"token" : number};
+    [apiManager getRequestResetAndNext:dict];
+}
+
+// Get public info
+
+-(void)GetPublicInfo:(NSString *)number
+{
+    NSDictionary *dict = @{@"User" : QStatus_EndPoint,@"End_Point" : Reset_EndPoint,@"token" : number};
     [apiManager getRequestResetAndNext:dict];
 }
 @end

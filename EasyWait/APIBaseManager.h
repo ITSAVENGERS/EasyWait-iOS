@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "APIManager.h"
 
+@protocol BaseManagerProtocol <NSObject>
+-(void)startLoader;
+-(void)stopLoader;
+@end
 @interface APIBaseManager : NSObject
 {
     NSString *Vendor_EndPoint;
@@ -25,9 +29,12 @@
     NSString *token;
 }
 //@property (strong, nonatomic)NSString *token;
+@property(weak,nonatomic)id <BaseManagerProtocol>Delegate;
 -(void)RegisterNumber:(NSString *)number;
 -(void)VerifyNumber:(NSString *)number AndOTP:(NSString *)otp;
 -(void)RegisterNname:(NSString *)name;
 -(void)NextTurn:(NSString *)myToken;
 -(void)ResetTurn:(NSString *)myToken;
+-(void)PublicInfo:(NSString *)number;
+-(void)GetPublicInfo:(NSString *)number;
 @end

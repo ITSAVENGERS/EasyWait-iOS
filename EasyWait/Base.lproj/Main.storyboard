@@ -112,6 +112,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eFV-l2-Czz">
+                                <rect key="frame" x="282" y="281" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vGA-bb-uDY">
                                 <rect key="frame" x="0.0" y="200" width="600" height="200"/>
                                 <subviews>
@@ -123,6 +127,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="jZC-Lc-AKn" id="HcX-1d-SrR"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gn6-mL-pDT">
                                         <rect key="frame" x="159" y="138" width="282" height="30"/>
@@ -132,6 +139,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="jZC-Lc-AKn" id="gcJ-6k-udI"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpx-Mn-zEP">
                                         <rect key="frame" x="259" y="71" width="82" height="30"/>
@@ -144,6 +154,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="VerifyBTN:" destination="jZC-Lc-AKn" eventType="touchUpInside" id="OFJ-D4-Yi8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -169,19 +182,27 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="25"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="SetNameAndNextView:" destination="jZC-Lc-AKn" eventType="touchUpInside" id="O9x-cc-vtu"/>
                                     <segue destination="0bk-4E-4Fw" kind="show" id="1Sw-LD-QYf"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.77325978129999995" green="0.94332912570000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="eFV-l2-Czz" firstAttribute="centerY" secondItem="0f4-2v-sp2" secondAttribute="centerY" id="E2B-hw-ozR"/>
                             <constraint firstItem="5jU-2i-yLY" firstAttribute="top" secondItem="vGA-bb-uDY" secondAttribute="bottom" constant="8" id="LEM-8D-T7z"/>
                             <constraint firstItem="5jU-2i-yLY" firstAttribute="centerX" secondItem="0f4-2v-sp2" secondAttribute="centerX" id="LtJ-Hh-mz7"/>
                             <constraint firstItem="vGA-bb-uDY" firstAttribute="centerY" secondItem="0f4-2v-sp2" secondAttribute="centerY" id="Q8b-hM-pi9"/>
                             <constraint firstAttribute="trailing" secondItem="vGA-bb-uDY" secondAttribute="trailing" id="Ran-3k-wEi"/>
+                            <constraint firstItem="eFV-l2-Czz" firstAttribute="centerX" secondItem="0f4-2v-sp2" secondAttribute="centerX" id="Ru3-Na-WZD"/>
                             <constraint firstItem="vGA-bb-uDY" firstAttribute="leading" secondItem="0f4-2v-sp2" secondAttribute="leading" id="eq3-1R-WLr"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activityLoader" destination="eFV-l2-Czz" id="ngB-Es-oz5"/>
+                        <outlet property="nameTextField" destination="Gn6-mL-pDT" id="Dly-O3-f1x"/>
+                        <outlet property="otpTextFIeld" destination="peU-x1-QXf" id="XAa-tr-8wb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cVt-7Y-dg1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -434,7 +455,6 @@
         <!--Navigation Controller-->
         <scene sceneID="Oi0-Bd-fzo">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mK3-Mn-zjJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4FT-G2-uYl" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bDq-xq-afG">
@@ -446,6 +466,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="EKQ-Li-r5B"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mK3-Mn-zjJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="379.5" y="297"/>
         </scene>
