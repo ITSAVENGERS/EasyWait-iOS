@@ -112,10 +112,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eFV-l2-Czz">
-                                <rect key="frame" x="282" y="281" width="37" height="37"/>
-                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vGA-bb-uDY">
                                 <rect key="frame" x="0.0" y="200" width="600" height="200"/>
                                 <subviews>
@@ -186,6 +182,10 @@
                                     <segue destination="0bk-4E-4Fw" kind="show" id="1Sw-LD-QYf"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eFV-l2-Czz">
+                                <rect key="frame" x="281" y="282" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.77325978129999995" green="0.94332912570000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -202,6 +202,7 @@
                         <outlet property="activityLoader" destination="eFV-l2-Czz" id="ngB-Es-oz5"/>
                         <outlet property="nameTextField" destination="Gn6-mL-pDT" id="Dly-O3-f1x"/>
                         <outlet property="otpTextFIeld" destination="peU-x1-QXf" id="XAa-tr-8wb"/>
+                        <outlet property="setName" destination="5jU-2i-yLY" id="ztY-Hh-b7V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cVt-7Y-dg1" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -16,7 +16,6 @@
     NSString *mNumber;
     NSString *name;
     NSMutableArray *array ;
-    otpViewController *otpviewController;
 }
 @end
 

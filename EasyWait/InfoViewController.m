@@ -8,7 +8,7 @@
 
 #import "InfoViewController.h"
 
-@interface InfoViewController ()
+@interface InfoViewController ()<BaseProtocol>
 @property (weak, nonatomic) IBOutlet UITextField *mobiletxt;
 - (IBAction)SubBTN:(id)sender;
 - (IBAction)QueueBtn:(id)sender;
@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    baseManager = [[APIBaseManager alloc]init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,18 +26,13 @@
 }
 
 - (IBAction)SubBTN:(id)sender {
-    [self InfoAPICalling];
-}
--(void)InfoAPICalling
-{
-    
-    NSString *urlAsString = [NSString stringWithFormat:@"http://ewait.lkfans.org/api/qstatus/publicinfo/91%@",self.mobiletxt.text];
-    NSLog(@"%@", urlAsString);
-    
+    infoNumber = self.mobiletxt.text;
+    [baseManager PublicInfo:infoNumber];
 }
 
 - (IBAction)QueueBtn:(id)sender {
-    [self QueueAPICalling];
+    infoNumber = self.mobiletxt.text;
+    [baseManager GetPublicInfo:infoNumber];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -44,10 +40,8 @@
     [super touchesBegan:touches withEvent:event];
 }
 
--(void)QueueAPICalling
+-(void)DataTransfer:(NSDictionary *)dict
 {
-        NSString *urlAsString = [NSString stringWithFormat:@"http://ewait.lkfans.org/api/qstatus/get/91%@",self.mobiletxt.text];
-        NSLog(@"%@", urlAsString);
-        
+    NSLog(@"%@",dict);
 }
 @end

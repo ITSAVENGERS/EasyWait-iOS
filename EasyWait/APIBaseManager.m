@@ -23,6 +23,8 @@
         Reset_EndPoint = @"reset";
         apiManager = [[APIManager alloc]init];
         token = [[NSString alloc]init];
+        publicInfoDict = [[NSDictionary alloc]init];
+        getPublicInfoDict = [[NSDictionary alloc]init];
     }
     return self;
 }
@@ -35,8 +37,10 @@
 //    [apiManager getRequest:dict];
     SuccessRequestBlock callback = ^(BOOL wasSuccessful, NSDictionary *dict) {
         if (wasSuccessful) {
-            registerDict = dict;
-            NSLog(@"%@",registerDict);
+            for(id key in dict) {
+                id value = [dict objectForKey:key];
+                [[NSUserDefaults standardUserDefaults] setValue:value forKey:key];
+            }
             if([self.Delegate respondsToSelector:@selector(startLoader)])
                 [self.Delegate stopLoader];
         } else {
@@ -52,19 +56,21 @@
 
 -(void)VerifyNumber:(NSString *)number AndOTP:(NSString *)otp
 {
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSString *otp_start = [userDefault stringForKey:@"otp_start"];
+    NSString *keymatch = [userDefault stringForKey:@"keymatch"];
     SuccessRequestBlockVerify callback = ^(BOOL wasSuccessful, NSDictionary *dict) {
         if (wasSuccessful) {
             token = dict[@"token"];
-            if([self.Delegate respondsToSelector:@selector(startLoader)])
-                [self.Delegate startLoader];
             [[NSUserDefaults standardUserDefaults] setValue:token forKey:@"token"];
+            if([self.Delegate respondsToSelector:@selector(stopLoader)])
+                [self.Delegate stopLoader];
         } else {
             NSLog(@"Error");
         }
     };
-    NSDictionary *dict = @{@"User" : Vendor_EndPoint, @"End_Point" : Verify_EndPoint, @"Mobile_Number" : number, @"otp" : otp,@"otp_start" : registerDict[@"otp_start"], @"service" : registerDict[@"service"], @"keymatch" : registerDict[@"keymatch"]};
-    [apiManager getRequestWithCallBackVerify:dict
-                          withCallback:callback];
+    NSDictionary *dict = @{@"User" : Vendor_EndPoint, @"End_Point" : Verify_EndPoint, @"Mobile_Number" : number, @"otp" : otp,@"otp_start" : otp_start, @"service" : @"cognalys", @"keymatch" : keymatch};
+    [apiManager getRequestWithCallBackVerify:dict withCallback:callback];
 }
 
 // Set your name
@@ -79,31 +85,63 @@
 
 -(void)NextTurn:(NSString *)myToken
 {
+    SuccessRequestBlockResetAndNext callback = ^(BOOL wasSuccessful, NSDictionary *dict) {
+        if (wasSuccessful) {
+        } else {
+            NSLog(@"Error");
+        }
+    };
     NSDictionary *dict = @{@"User" : QStatus_EndPoint,@"End_Point" : Next_EndPoint,@"token" : myToken};
-    [apiManager getRequestResetAndNext:dict];
+    NSLog(@"%@",dict);
+    [apiManager getRequestResetAndNext:dict withCallback:callback];
 }
 
 // Reset your turn
 
 -(void)ResetTurn:(NSString *)myToken
 {
+    SuccessRequestBlockResetAndNext callback = ^(BOOL wasSuccessful, NSDictionary *dict) {
+        if (wasSuccessful) {
+        } else {
+            NSLog(@"Error");
+        }
+    };
     NSDictionary *dict = @{@"User" : QStatus_EndPoint,@"End_Point" : Reset_EndPoint,@"token" : myToken};
-    [apiManager getRequestResetAndNext:dict];
+    NSLog(@"%@",dict);
+    [apiManager getRequestResetAndNext:dict withCallback:callback];
 }
 
 // Public Information
 
 -(void)PublicInfo:(NSString *)number
 {
+    SuccessRequestBlockResetAndNext callback = ^(BOOL wasSuccessful, NSDictionary *dict) {
+        if (wasSuccessful) {
+            publicInfoDict = dict;
+            if([self.BaseDelegate respondsToSelector:@selector(DataTransfer:)])
+                [self.BaseDelegate DataTransfer:publicInfoDict];
+        } else {
+            NSLog(@"Error");
+        }
+    };
     NSDictionary *dict = @{@"User" : QStatus_EndPoint,@"End_Point" : Reset_EndPoint,@"token" : number};
-    [apiManager getRequestResetAndNext:dict];
+    [apiManager getRequestResetAndNext:dict withCallback:callback];
 }
 
 // Get public info
 
 -(void)GetPublicInfo:(NSString *)number
 {
+    SuccessRequestBlockResetAndNext callback = ^(BOOL wasSuccessful, NSDictionary *dict) {
+        if (wasSuccessful) {
+            getPublicInfoDict = dict;
+            if([self.BaseDelegate respondsToSelector:@selector(DataTransfer:)])
+                [self.BaseDelegate DataTransfer:getPublicInfoDict];
+        } else {
+            NSLog(@"Error");
+        }
+    };
     NSDictionary *dict = @{@"User" : QStatus_EndPoint,@"End_Point" : Reset_EndPoint,@"token" : number};
-    [apiManager getRequestResetAndNext:dict];
+    [apiManager getRequestResetAndNext:dict withCallback:callback];
 }
 @end

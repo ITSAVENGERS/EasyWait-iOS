@@ -10,6 +10,7 @@
 
 typedef void (^SuccessRequestBlock) (BOOL wasSuccessful, NSDictionary *dict);
 typedef void (^SuccessRequestBlockVerify) (BOOL wasSuccessful, NSDictionary *dict);
+typedef void (^SuccessRequestBlockResetAndNext) (BOOL wasSuccessful, NSDictionary *dict);
 @interface APIManager : NSObject
 {
     NSString *url;
@@ -20,5 +21,5 @@ typedef void (^SuccessRequestBlockVerify) (BOOL wasSuccessful, NSDictionary *dic
                  withCallback:(SuccessRequestBlock)callback;
 - (void)getRequestWithCallBackVerify:(NSDictionary *)dict
                         withCallback:(SuccessRequestBlockVerify)callback;
--(void)getRequestResetAndNext:(NSDictionary *)userData;
+-(void)getRequestResetAndNext:(NSDictionary *)userData withCallback:(SuccessRequestBlockResetAndNext)callback;
 @end

@@ -18,7 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     baseManager = [[APIBaseManager alloc]init];
-    otpviewController = [[otpViewController alloc]init];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -42,8 +41,8 @@
 
 -(void)stopLoader
 {
+    [self performSegueWithIdentifier:@"otpSegue" sender:@"otpSegue"];
     [self.activityIndicator stopAnimating];
-    [self performSegueWithIdentifier:@"otpSegue" sender:self];
 }
 
 -(void)startLoader
@@ -55,17 +54,16 @@
     [self.activityIndicator startAnimating];
     mNumber = self.mobiletxtfield.text;
     baseManager.Delegate = self;
-    otpviewController.myNumber = mNumber;
     [baseManager RegisterNumber:mNumber];
+    //[self performSegueWithIdentifier:@"otpSegue" sender:@"otpSegue"];
 }
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    NextViewController *nxt=[segue destinationViewController];
-//        if ([segue.identifier isEqualToString:@"Next"])
-//    {
-//        nxt.myLog = baseManager.token;
-//        //NSLog(@"%@",nxt.myLog);
-//    }
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    otpViewController *otpviewController=[segue destinationViewController];
+        if ([segue.identifier isEqualToString:@"otpSegue"])
+    {
+        otpviewController.myNumber = mNumber;
+    }
 
-//}
+}
 @end

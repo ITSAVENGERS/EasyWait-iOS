@@ -13,6 +13,9 @@
 -(void)startLoader;
 -(void)stopLoader;
 @end
+@protocol BaseProtocol <NSObject>
+-(void)DataTransfer:(NSDictionary *)dict;
+@end
 @interface APIBaseManager : NSObject
 {
     NSString *Vendor_EndPoint;
@@ -25,11 +28,13 @@
     NSString *Next_EndPoint;
     NSString *Reset_EndPoint;
     APIManager *apiManager;
-    NSDictionary *registerDict;
+    NSDictionary *publicInfoDict;
+    NSDictionary *getPublicInfoDict;
     NSString *token;
 }
 //@property (strong, nonatomic)NSString *token;
 @property(weak,nonatomic)id <BaseManagerProtocol>Delegate;
+@property(weak,nonatomic)id <BaseProtocol>BaseDelegate;
 -(void)RegisterNumber:(NSString *)number;
 -(void)VerifyNumber:(NSString *)number AndOTP:(NSString *)otp;
 -(void)RegisterNname:(NSString *)name;

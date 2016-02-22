@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "APIBaseManager.h"
 
 @interface InfoViewController : UIViewController
-@property (strong , nonatomic)NSDictionary *infoDict ;
-@property (strong , nonatomic)NSDictionary *queueDict ;
+{
+    APIBaseManager *baseManager;
+    NSString *infoNumber;
+}
 @end

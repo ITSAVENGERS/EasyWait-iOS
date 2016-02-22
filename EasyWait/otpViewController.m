@@ -13,45 +13,39 @@
 - (IBAction)VerifyBTN:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 - (IBAction)SetNameAndNextView:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *setName;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityLoader;
 
 @end
 
 @implementation otpViewController
-
+@synthesize myNumber;
 - (void)viewDidLoad {
     [super viewDidLoad];
     baseManager = [[APIBaseManager alloc]init];
+    self.setName.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 -(void)startLoader
 {
-    
+    [self.activityLoader startAnimating];
 }
 
 -(void)stopLoader
 {
     [self.activityLoader stopAnimating];
+    self.setName.hidden = NO;
 }
 
 - (IBAction)VerifyBTN:(id)sender {
-     NSString *otpNum = self.otpTextFIeld.text;
     [self.activityLoader startAnimating];
+     NSString *otpNum = self.otpTextFIeld.text;
     baseManager.Delegate = self;
-    [baseManager VerifyNumber:_myNumber AndOTP:otpNum];
+    [baseManager VerifyNumber:myNumber AndOTP:otpNum];
 }
 - (IBAction)SetNameAndNextView:(id)sender {
     NSString *name = self.nameTextField.text;

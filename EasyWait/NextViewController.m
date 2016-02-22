@@ -23,7 +23,6 @@
     baseManager = [[APIBaseManager alloc]init];
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     myToken = [userDefault stringForKey:@"token"];
-    NSLog(@"%@",myToken);
     [super viewDidLoad];
 }
 

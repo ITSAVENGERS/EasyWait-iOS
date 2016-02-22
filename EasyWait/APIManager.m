@@ -22,7 +22,7 @@
     NSString *getUrl = [NSString stringWithFormat:@"%@/%@/%@/%@/%@",url,userData[@"User"],userData[@"End_Point"],userData[@"token"],userData[@"name"]];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:getUrl parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
+        //NSLog(@"JSON: %@", responseObject);
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
@@ -71,13 +71,15 @@
 }
 
 
--(void)getRequestResetAndNext:(NSDictionary *)userData
+-(void)getRequestResetAndNext:(NSDictionary *)userData withCallback:(SuccessRequestBlockResetAndNext)callback
 {
     NSString *getUrl = [NSString stringWithFormat:@"%@/%@/%@/%@",url,userData[@"User"],userData[@"End_Point"],userData[@"token"]];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:getUrl parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
+        NSDictionary *dict = responseObject;
+        callback(YES,dict);
     } failure:^(NSURLSessionTask *operation, NSError *error) {
+        callback(NO, nil);
         NSLog(@"Error: %@", error);
     }];
 }
