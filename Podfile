@@ -6,6 +6,7 @@
 target 'EasyWait' do
 pod 'IQKeyboardManager'
 pod 'AFNetworking', '~> 3.0'
+pod 'CWStatusBarNotification', '~> 2.3.4'
 end
 
 target 'EasyWaitTests' do

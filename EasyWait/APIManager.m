@@ -83,4 +83,33 @@
         NSLog(@"Error: %@", error);
     }];
 }
+-(void)InternetConnectivity
+{
+
+}
+
+-(void)InternetConnectivitywithCallback:(CheckInternetBlock)callback
+{
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        //NSLog(@"Reachability changed: %@", AFStringFromNetworkReachabilityStatus(status));
+        
+        
+        switch (status) {
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                // -- Reachable -- //
+                callback(YES,@"Internet Connected");
+                break;
+            case AFNetworkReachabilityStatusNotReachable:
+            default:
+                // -- Not reachable -- //
+                callback(YES,@"Error in connection internet");
+                break;
+        }
+        
+    }];
+}
 @end

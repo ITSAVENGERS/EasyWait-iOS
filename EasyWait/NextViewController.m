@@ -8,12 +8,14 @@
 
 #import "NextViewController.h"
 
-@interface NextViewController ()
+@interface NextViewController ()<BaseManagerProtocol>
 {
     int counterValue;
 }
 - (IBAction)IncBTN:(id)sender;
 - (IBAction)ResetBTN:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *nextLoader;
 @property (weak, nonatomic) IBOutlet UILabel *counterDisplay;
 @end
 
@@ -37,17 +39,33 @@
 
 
 - (IBAction)IncBTN:(id)sender {
+    [self.nextLoader startAnimating];
+    self.nextLoader.transform = CGAffineTransformMakeScale(2.0, 2.0);
+    self.nextLoader.layer.cornerRadius = 5.0;
     counterValue++;
     self.counterDisplay.text=[NSString stringWithFormat:@"%d", counterValue];
+    baseManager.Delegate = self;
     [baseManager NextTurn:myToken];
     
 }
 
 - (IBAction)ResetBTN:(id)sender {
+    [self.nextLoader startAnimating];
+    self.nextLoader.transform = CGAffineTransformMakeScale(2.0, 2.0);
+    self.nextLoader.layer.cornerRadius = 5.0;
     counterValue=0;
     self.counterDisplay.text=[NSString stringWithFormat:@"%d", counterValue];
+    baseManager.Delegate = self;
     [baseManager ResetTurn:myToken];
 }
 
+-(void)startLoader
+{
+    
+}
 
+-(void)stopLoader
+{
+    [self.nextLoader stopAnimating];
+}
 @end

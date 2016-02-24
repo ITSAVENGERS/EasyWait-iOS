@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *mobiletxt;
 - (IBAction)SubBTN:(id)sender;
 - (IBAction)QueueBtn:(id)sender;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *infoLoader;
 @end
 
 @implementation InfoViewController
@@ -26,12 +27,20 @@
 }
 
 - (IBAction)SubBTN:(id)sender {
+    [self.infoLoader startAnimating];
+    self.infoLoader.transform = CGAffineTransformMakeScale(2.0, 2.0);
+    self.infoLoader.layer.cornerRadius = 5.0;
     infoNumber = self.mobiletxt.text;
+    baseManager.BaseDelegate = self;
     [baseManager PublicInfo:infoNumber];
 }
 
 - (IBAction)QueueBtn:(id)sender {
+    [self.infoLoader startAnimating];
+    self.infoLoader.transform = CGAffineTransformMakeScale(2.0, 2.0);
+    self.infoLoader.layer.cornerRadius = 5.0;
     infoNumber = self.mobiletxt.text;
+    baseManager.BaseDelegate = self;
     [baseManager GetPublicInfo:infoNumber];
 }
 
@@ -40,8 +49,10 @@
     [super touchesBegan:touches withEvent:event];
 }
 
+
 -(void)DataTransfer:(NSDictionary *)dict
 {
+    [self.infoLoader stopAnimating];
     NSLog(@"%@",dict);
 }
 @end

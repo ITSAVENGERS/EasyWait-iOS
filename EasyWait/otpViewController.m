@@ -43,12 +43,17 @@
 
 - (IBAction)VerifyBTN:(id)sender {
     [self.activityLoader startAnimating];
+    self.activityLoader.transform = CGAffineTransformMakeScale(2.0, 2.0);
+    self.activityLoader.layer.cornerRadius = 5.0;
      NSString *otpNum = self.otpTextFIeld.text;
     baseManager.Delegate = self;
     [baseManager VerifyNumber:myNumber AndOTP:otpNum];
 }
 - (IBAction)SetNameAndNextView:(id)sender {
     NSString *name = self.nameTextField.text;
-    [baseManager RegisterNname:name];
+    NSCharacterSet *set = [NSCharacterSet URLQueryAllowedCharacterSet];
+    NSString *urlName = [name stringByAddingPercentEncodingWithAllowedCharacters:set];
+    NSLog(@"%@",urlName);
+    [baseManager RegisterNname:urlName];
 }
 @end

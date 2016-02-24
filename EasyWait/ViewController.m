@@ -14,10 +14,13 @@
 @end
 
 @implementation ViewController
+@synthesize notification;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     baseManager = [[APIBaseManager alloc]init];
+    baseManager.Delegate = self;
+    [baseManager InternetChecking];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -52,6 +55,8 @@
 
 - (IBAction)MobileBTN:(id)sender {
     [self.activityIndicator startAnimating];
+    self.activityIndicator.transform = CGAffineTransformMakeScale(2.0, 2.0);
+    self.activityIndicator.layer.cornerRadius = 5.0;
     mNumber = self.mobiletxtfield.text;
     baseManager.Delegate = self;
     [baseManager RegisterNumber:mNumber];
@@ -65,5 +70,23 @@
         otpviewController.myNumber = mNumber;
     }
 
+}
+
+-(void)InternetStatus:(NSString *)status
+{
+    // initialize CWNotification
+    self.notification = [CWStatusBarNotification new];
+    
+    // set default blue color (since iOS 7.1, default window tintColor is black)
+    self.notification.notificationLabelBackgroundColor = [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0];
+    [self setupNotification];
+    [self.notification displayNotificationWithMessage:status forDuration:5.0];
+}
+
+- (void)setupNotification
+{
+    self.notification.notificationAnimationInStyle = 0;
+    self.notification.notificationAnimationOutStyle = 0;
+    self.notification.notificationWindow = CWNotificationStyleStatusBarNotification;
 }
 @end

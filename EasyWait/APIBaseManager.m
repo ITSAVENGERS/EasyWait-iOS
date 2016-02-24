@@ -29,6 +29,21 @@
     return self;
 }
 
+// Checking the status of internet
+
+-(void)InternetChecking
+{
+    CheckInternetBlock callback = ^(BOOL wasSuccessful, NSString *result) {
+        if (wasSuccessful) {
+            if([self.Delegate respondsToSelector:@selector(InternetStatus:)])
+                [self.Delegate InternetStatus:result];
+        } else {
+            NSLog(@"Error");
+        }
+    };
+    [apiManager InternetConnectivitywithCallback:callback];
+}
+
 // Register your number
 
 -(void)RegisterNumber:(NSString *)number
@@ -87,12 +102,15 @@
 {
     SuccessRequestBlockResetAndNext callback = ^(BOOL wasSuccessful, NSDictionary *dict) {
         if (wasSuccessful) {
+            if([self.Delegate respondsToSelector:@selector(stopLoader)])
+            {
+                [self.Delegate stopLoader];
+            }
         } else {
             NSLog(@"Error");
         }
     };
     NSDictionary *dict = @{@"User" : QStatus_EndPoint,@"End_Point" : Next_EndPoint,@"token" : myToken};
-    NSLog(@"%@",dict);
     [apiManager getRequestResetAndNext:dict withCallback:callback];
 }
 
@@ -102,12 +120,15 @@
 {
     SuccessRequestBlockResetAndNext callback = ^(BOOL wasSuccessful, NSDictionary *dict) {
         if (wasSuccessful) {
+            if([self.Delegate respondsToSelector:@selector(stopLoader)])
+            {
+                [self.Delegate stopLoader];
+            }
         } else {
             NSLog(@"Error");
         }
     };
     NSDictionary *dict = @{@"User" : QStatus_EndPoint,@"End_Point" : Reset_EndPoint,@"token" : myToken};
-    NSLog(@"%@",dict);
     [apiManager getRequestResetAndNext:dict withCallback:callback];
 }
 
@@ -119,7 +140,9 @@
         if (wasSuccessful) {
             publicInfoDict = dict;
             if([self.BaseDelegate respondsToSelector:@selector(DataTransfer:)])
+            {
                 [self.BaseDelegate DataTransfer:publicInfoDict];
+            }
         } else {
             NSLog(@"Error");
         }
@@ -136,7 +159,9 @@
         if (wasSuccessful) {
             getPublicInfoDict = dict;
             if([self.BaseDelegate respondsToSelector:@selector(DataTransfer:)])
+            {
                 [self.BaseDelegate DataTransfer:getPublicInfoDict];
+            }
         } else {
             NSLog(@"Error");
         }

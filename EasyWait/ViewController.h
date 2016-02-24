@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "APIBaseManager.h"
 #import "otpViewController.h"
+#import "CWStatusBarNotification.h"
 
 @interface ViewController : UIViewController<UITextFieldDelegate>
 {
@@ -17,5 +18,6 @@
     NSString *name;
     NSMutableArray *array ;
 }
+@property (strong, nonatomic) CWStatusBarNotification *notification;
 @end
 

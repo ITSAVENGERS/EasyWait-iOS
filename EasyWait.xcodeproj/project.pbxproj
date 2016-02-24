@@ -43,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		075753BC8F14A45B2EFF48BD /* Pods-EasyWaitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyWaitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EasyWaitTests/Pods-EasyWaitTests.release.xcconfig"; sourceTree = "<group>"; };
 		56A05E571C40B06600472FEA /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		56A05E581C40B06600472FEA /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		56EB28681C72443400C9A8C9 /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
@@ -71,9 +72,12 @@
 		56FA06CD1C3E3A3F00511157 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D860F3B0C38FB4CFC3AACED /* libPods-EasyWait.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EasyWait.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A14733359ADE07BCD947FAF0 /* Pods-EasyWait.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyWait.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EasyWait/Pods-EasyWait.debug.xcconfig"; sourceTree = "<group>"; };
+		BA034EA50C358AE83C6985FA /* Pods-EasyWaitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyWaitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EasyWaitTests/Pods-EasyWaitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D13242D06700393D019680E7 /* Pods-EasyWaitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyWaitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EasyWaitUITests/Pods-EasyWaitUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D398FDC6D7E49297C6C9AA6D /* libPods-EasyWaitUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EasyWaitUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7054F1A4DB11FBCA5E42F5A /* Pods-EasyWait.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyWait.release.xcconfig"; path = "Pods/Target Support Files/Pods-EasyWait/Pods-EasyWait.release.xcconfig"; sourceTree = "<group>"; };
 		F45735BEF0BC9FD804DB576D /* libPods-EasyWaitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EasyWaitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F608FC2A323565498347F19C /* Pods-EasyWaitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyWaitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EasyWaitUITests/Pods-EasyWaitUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +197,10 @@
 			children = (
 				A14733359ADE07BCD947FAF0 /* Pods-EasyWait.debug.xcconfig */,
 				D7054F1A4DB11FBCA5E42F5A /* Pods-EasyWait.release.xcconfig */,
+				BA034EA50C358AE83C6985FA /* Pods-EasyWaitTests.debug.xcconfig */,
+				075753BC8F14A45B2EFF48BD /* Pods-EasyWaitTests.release.xcconfig */,
+				D13242D06700393D019680E7 /* Pods-EasyWaitUITests.debug.xcconfig */,
+				F608FC2A323565498347F19C /* Pods-EasyWaitUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -635,6 +643,7 @@
 		};
 		56FA06D41C3E3A3F00511157 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA034EA50C358AE83C6985FA /* Pods-EasyWaitTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = EasyWaitTests/Info.plist;
@@ -647,6 +656,7 @@
 		};
 		56FA06D51C3E3A3F00511157 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 075753BC8F14A45B2EFF48BD /* Pods-EasyWaitTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = EasyWaitTests/Info.plist;
@@ -659,6 +669,7 @@
 		};
 		56FA06D71C3E3A3F00511157 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D13242D06700393D019680E7 /* Pods-EasyWaitUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = EasyWaitUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -671,6 +682,7 @@
 		};
 		56FA06D81C3E3A3F00511157 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F608FC2A323565498347F19C /* Pods-EasyWaitUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = EasyWaitUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

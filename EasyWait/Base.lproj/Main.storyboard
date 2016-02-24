@@ -66,8 +66,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="vaD-L4-aKe">
-                                <rect key="frame" x="282" y="281" width="37" height="37"/>
-                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="281.5" y="281.5" width="37" height="37"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -184,7 +185,8 @@
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eFV-l2-Czz">
                                 <rect key="frame" x="281" y="282" width="37" height="37"/>
-                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.77325978129999995" green="0.94332912570000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -287,6 +289,11 @@
                                     <action selector="ResetBTN:" destination="0bk-4E-4Fw" eventType="touchUpInside" id="yc9-dT-xii"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eHU-iV-vsJ">
+                                <rect key="frame" x="282" y="281" width="37" height="37"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.77325978129999995" green="0.94332912570000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -307,6 +314,7 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                             </constraint>
                             <constraint firstItem="bOY-fY-2FW" firstAttribute="centerX" secondItem="zgL-rw-7ke" secondAttribute="centerX" id="bLy-PS-2Jv"/>
+                            <constraint firstItem="eHU-iV-vsJ" firstAttribute="centerY" secondItem="zgL-rw-7ke" secondAttribute="centerY" id="ePE-WD-ks6"/>
                             <constraint firstItem="AQS-T4-5RM" firstAttribute="height" secondItem="zYD-2W-ka4" secondAttribute="height" id="izI-Fu-F6d"/>
                             <constraint firstItem="zYD-2W-ka4" firstAttribute="top" secondItem="ML5-Gh-Fdr" secondAttribute="bottom" constant="80" id="j0r-AT-Z7B"/>
                             <constraint firstItem="bOY-fY-2FW" firstAttribute="leading" secondItem="zYD-2W-ka4" secondAttribute="trailing" constant="30" id="ld2-2m-ez7">
@@ -318,6 +326,7 @@
                                 <variation key="heightClass=compact-widthClass=compact" constant="26"/>
                                 <variation key="heightClass=regular-widthClass=compact" constant="15"/>
                             </constraint>
+                            <constraint firstItem="eHU-iV-vsJ" firstAttribute="centerX" secondItem="zgL-rw-7ke" secondAttribute="centerX" id="zU3-yi-TKd"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -354,6 +363,7 @@
                     </view>
                     <connections>
                         <outlet property="counterDisplay" destination="bOY-fY-2FW" id="RB5-66-GgF"/>
+                        <outlet property="nextLoader" destination="eHU-iV-vsJ" id="CEl-KB-Z6X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mDk-z8-2Ud" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -420,14 +430,21 @@
                                     <action selector="SubBTN:" destination="0bk-4E-4Fw" eventType="touchUpInside" id="h3G-aE-hls"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gj6-TN-JcJ">
+                                <rect key="frame" x="282" y="281" width="37" height="37"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="color" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.77325978129999995" green="0.94332912570000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="gj6-TN-JcJ" firstAttribute="centerX" secondItem="bgi-R7-Tao" secondAttribute="centerX" id="ATT-Xi-f4w"/>
                             <constraint firstItem="sLQ-oM-e7k" firstAttribute="top" secondItem="AGJ-Ct-dMe" secondAttribute="bottom" constant="96" id="IiB-ya-pew"/>
                             <constraint firstAttribute="trailing" secondItem="Tma-tx-R5c" secondAttribute="trailing" constant="20" id="Nxx-Oe-Pdh"/>
                             <constraint firstItem="sLQ-oM-e7k" firstAttribute="leading" secondItem="bgi-R7-Tao" secondAttribute="leading" constant="20" id="PmI-z8-BfJ"/>
                             <constraint firstItem="GQh-vr-ooT" firstAttribute="centerX" secondItem="bgi-R7-Tao" secondAttribute="centerX" id="Xcx-lv-5DE"/>
                             <constraint firstItem="sLQ-oM-e7k" firstAttribute="leading" secondItem="bgi-R7-Tao" secondAttribute="leading" constant="20" id="jER-1L-2S2"/>
+                            <constraint firstItem="gj6-TN-JcJ" firstAttribute="centerY" secondItem="bgi-R7-Tao" secondAttribute="centerY" id="mZT-Vi-sEF"/>
                             <constraint firstItem="GQh-vr-ooT" firstAttribute="top" secondItem="AGJ-Ct-dMe" secondAttribute="bottom" constant="37" id="qps-JE-8mS"/>
                             <constraint firstItem="Tma-tx-R5c" firstAttribute="top" secondItem="AGJ-Ct-dMe" secondAttribute="bottom" constant="96" id="vhp-YR-Tb8"/>
                             <constraint firstAttribute="trailing" secondItem="Tma-tx-R5c" secondAttribute="trailing" constant="20" id="xiU-P3-6cs"/>
@@ -446,6 +463,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="infoLoader" destination="gj6-TN-JcJ" id="xjU-1K-SCA"/>
                         <outlet property="mobiletxt" destination="GQh-vr-ooT" id="ePT-br-5Ma"/>
                     </connections>
                 </viewController>

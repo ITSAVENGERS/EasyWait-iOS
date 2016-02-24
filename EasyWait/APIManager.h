@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+typedef void (^CheckInternetBlock) (BOOL wasSuccessful, NSString *result);
 typedef void (^SuccessRequestBlock) (BOOL wasSuccessful, NSDictionary *dict);
 typedef void (^SuccessRequestBlockVerify) (BOOL wasSuccessful, NSDictionary *dict);
 typedef void (^SuccessRequestBlockResetAndNext) (BOOL wasSuccessful, NSDictionary *dict);
@@ -22,4 +22,5 @@ typedef void (^SuccessRequestBlockResetAndNext) (BOOL wasSuccessful, NSDictionar
 - (void)getRequestWithCallBackVerify:(NSDictionary *)dict
                         withCallback:(SuccessRequestBlockVerify)callback;
 -(void)getRequestResetAndNext:(NSDictionary *)userData withCallback:(SuccessRequestBlockResetAndNext)callback;
+-(void)InternetConnectivitywithCallback:(CheckInternetBlock)callback;
 @end

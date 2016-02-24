@@ -12,6 +12,7 @@
 @protocol BaseManagerProtocol <NSObject>
 -(void)startLoader;
 -(void)stopLoader;
+@optional -(void)InternetStatus:(NSString *)status;
 @end
 @protocol BaseProtocol <NSObject>
 -(void)DataTransfer:(NSDictionary *)dict;
@@ -42,4 +43,5 @@
 -(void)ResetTurn:(NSString *)myToken;
 -(void)PublicInfo:(NSString *)number;
 -(void)GetPublicInfo:(NSString *)number;
+-(void)InternetChecking;
 @end
