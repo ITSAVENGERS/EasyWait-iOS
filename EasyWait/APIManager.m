@@ -74,7 +74,7 @@
 -(void)getRequestResetAndNext:(NSDictionary *)userData withCallback:(SuccessRequestBlockResetAndNext)callback
 {
     NSString *getUrl = [NSString stringWithFormat:@"%@/%@/%@/%@",url,userData[@"User"],userData[@"End_Point"],userData[@"token"]];
-    NSLog(@"%@",getUrl);
+    //NSLog(@"%@",getUrl);
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:getUrl parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         NSDictionary *dict = responseObject;

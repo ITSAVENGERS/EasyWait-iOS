@@ -64,18 +64,44 @@
 }
 
 - (IBAction)VerifyBTN:(id)sender {
-    [self.activityLoader startAnimating];
     self.activityLoader.transform = CGAffineTransformMakeScale(1.5, 1.5);
     self.activityLoader.layer.cornerRadius = 5.0;
      NSString *otpNum = self.otpTextFIeld.text;
     baseManager.Delegate = self;
-    [baseManager VerifyNumber:myNumber AndOTP:otpNum];
+    if (self.otpTextFIeld.text!=nil &&![self.otpTextFIeld.text isEqualToString:@""])
+    {
+        [self.activityLoader startAnimating];
+        [baseManager VerifyNumber:myNumber AndOTP:otpNum];
+    }
+    else
+    {
+        UIAlertController * alert=   [UIAlertController
+                                      alertControllerWithTitle:@"Error"
+                                      message:@"Mobile number is Empty"
+                                      preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* yesButton = [UIAlertAction
+                                    actionWithTitle:@"Ok"
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action)
+                                    {
+                                        [self resignFirstResponder];
+                                        
+                                        
+                                    }];
+        
+        [alert addAction:yesButton];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    }
 }
 - (IBAction)SetNameAndNextView:(id)sender {
     NSString *name = self.nameTextField.text;
     NSCharacterSet *set = [NSCharacterSet URLQueryAllowedCharacterSet];
     NSString *urlName = [name stringByAddingPercentEncodingWithAllowedCharacters:set];
-    NSLog(@"%@",urlName);
-    [baseManager RegisterNname:urlName];
+    if (self.nameTextField.text!=nil &&![self.nameTextField.text isEqualToString:@""])
+    {
+        [baseManager RegisterNname:urlName];
+    }
 }
 @end

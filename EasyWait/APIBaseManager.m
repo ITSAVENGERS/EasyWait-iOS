@@ -147,7 +147,7 @@
             NSLog(@"Error");
         }
     };
-    NSDictionary *dict = @{@"User" : QStatus_EndPoint,@"End_Point" : Reset_EndPoint,@"token" : number};
+    NSDictionary *dict = @{@"User" : QStatus_EndPoint,@"End_Point" : PublicInfo_EndPoint,@"token" : number};
     [apiManager getRequestResetAndNext:dict withCallback:callback];
 }
 
@@ -158,15 +158,15 @@
     SuccessRequestBlockResetAndNext callback = ^(BOOL wasSuccessful, NSDictionary *dict) {
         if (wasSuccessful) {
             getPublicInfoDict = dict;
-            if([self.BaseDelegate respondsToSelector:@selector(DataTransfer:)])
+            if([self.BaseDelegate respondsToSelector:@selector(DataTransferQueue:)])
             {
-                [self.BaseDelegate DataTransfer:getPublicInfoDict];
+                [self.BaseDelegate DataTransferQueue:getPublicInfoDict];
             }
         } else {
             NSLog(@"Error");
         }
     };
-    NSDictionary *dict = @{@"User" : QStatus_EndPoint,@"End_Point" : Reset_EndPoint,@"token" : number};
+    NSDictionary *dict = @{@"User" : QStatus_EndPoint,@"End_Point" : Get_EndPoint,@"token" : number};
     [apiManager getRequestResetAndNext:dict withCallback:callback];
 }
 @end

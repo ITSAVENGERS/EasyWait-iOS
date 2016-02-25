@@ -75,12 +75,36 @@
 }
 
 - (IBAction)MobileBTN:(id)sender {
-    [self.activityIndicator startAnimating];
     self.activityIndicator.transform = CGAffineTransformMakeScale(1.5, 1.5);
     self.activityIndicator.layer.cornerRadius = 5.0;
     mNumber = self.mobiletxtfield.text;
     baseManager.Delegate = self;
-    [baseManager RegisterNumber:mNumber];
+        if (self.mobiletxtfield.text!=nil &&![self.mobiletxtfield.text isEqualToString:@""])
+        {
+            [self.activityIndicator startAnimating];
+            [baseManager RegisterNumber:mNumber];
+        }
+    else
+    {
+        UIAlertController * alert=   [UIAlertController
+                                      alertControllerWithTitle:@"Error"
+                                      message:@"Mobile number is Empty"
+                                      preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* yesButton = [UIAlertAction
+                                    actionWithTitle:@"Ok"
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action)
+                                    {
+                                        [self resignFirstResponder];
+                                        
+                                        
+                                    }];
+        
+        [alert addAction:yesButton];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    }
     //[self performSegueWithIdentifier:@"otpSegue" sender:@"otpSegue"];
 }
 

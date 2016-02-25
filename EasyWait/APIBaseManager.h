@@ -16,6 +16,7 @@
 @end
 @protocol BaseProtocol <NSObject>
 -(void)DataTransfer:(NSDictionary *)dict;
+-(void)DataTransferQueue:(NSDictionary *)dict;
 @end
 @interface APIBaseManager : NSObject
 {
