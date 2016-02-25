@@ -20,6 +20,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     baseManager = [[APIBaseManager alloc]init];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(RecieveNotification) name:@"MyNotification" object:nil];
+}
+-(void)RecieveNotification
+{
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Error"
+                                  message:@"Please connect your internet"
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* yesButton = [UIAlertAction
+                                actionWithTitle:@"Ok"
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action)
+                                {
+                                    [self resignFirstResponder];
+                                    
+                                    
+                                }];
+    
+    [alert addAction:yesButton];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,7 +50,7 @@
 
 - (IBAction)SubBTN:(id)sender {
     [self.infoLoader startAnimating];
-    self.infoLoader.transform = CGAffineTransformMakeScale(2.0, 2.0);
+    self.infoLoader.transform = CGAffineTransformMakeScale(1.5, 1.5);
     self.infoLoader.layer.cornerRadius = 5.0;
     infoNumber = self.mobiletxt.text;
     baseManager.BaseDelegate = self;
@@ -37,7 +59,7 @@
 
 - (IBAction)QueueBtn:(id)sender {
     [self.infoLoader startAnimating];
-    self.infoLoader.transform = CGAffineTransformMakeScale(2.0, 2.0);
+    self.infoLoader.transform = CGAffineTransformMakeScale(1.5, 1.5);
     self.infoLoader.layer.cornerRadius = 5.0;
     infoNumber = self.mobiletxt.text;
     baseManager.BaseDelegate = self;

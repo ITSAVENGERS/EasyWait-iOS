@@ -9,7 +9,9 @@
 #import "AppDelegate.h"
 
 @interface AppDelegate ()
-
+{
+    bool check;
+}
 @end
 
 @implementation AppDelegate
@@ -17,7 +19,54 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    UIApplication *app = [UIApplication sharedApplication];
+    
+    //create new uiBackgroundTask
+    __block UIBackgroundTaskIdentifier bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
+        [app endBackgroundTask:bgTask];
+        bgTask = UIBackgroundTaskInvalid;
+    }];
+    check = YES;
+    //and create new timer with async call:
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        //run function methodRunAfterBackground
+        NSTimer* timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(methodRunInBackground) userInfo:nil repeats:YES];
+        [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+        [[NSRunLoop currentRunLoop] run];
+    });
     return YES;
+}
+-(void)methodRunInBackground
+{
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        //NSLog(@"Reachability changed: %@", AFStringFromNetworkReachabilityStatus(status));
+        
+        
+        switch (status) {
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                // -- Reachable -- //
+                //NSLog(@"connected");
+                if (!check) {
+                    check = YES;
+                }
+                break;
+            case AFNetworkReachabilityStatusNotReachable:
+            default:
+                // -- Not reachable -- //
+                //NSLog(@"Error");
+                if (check) {
+                    [[NSNotificationCenter defaultCenter]
+                     postNotificationName:@"MyNotification" object:nil];
+                    check = NO;
+                }
+                break;
+        }
+        
+    }];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

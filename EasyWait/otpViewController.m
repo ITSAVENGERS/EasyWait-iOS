@@ -24,6 +24,28 @@
     [super viewDidLoad];
     baseManager = [[APIBaseManager alloc]init];
     self.setName.hidden = YES;
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(RecieveNotification) name:@"MyNotification" object:nil];
+}
+-(void)RecieveNotification
+{
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Error"
+                                  message:@"Please connect your internet"
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* yesButton = [UIAlertAction
+                                actionWithTitle:@"Ok"
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action)
+                                {
+                                    [self resignFirstResponder];
+                                    
+                                    
+                                }];
+    
+    [alert addAction:yesButton];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,7 +65,7 @@
 
 - (IBAction)VerifyBTN:(id)sender {
     [self.activityLoader startAnimating];
-    self.activityLoader.transform = CGAffineTransformMakeScale(2.0, 2.0);
+    self.activityLoader.transform = CGAffineTransformMakeScale(1.5, 1.5);
     self.activityLoader.layer.cornerRadius = 5.0;
      NSString *otpNum = self.otpTextFIeld.text;
     baseManager.Delegate = self;

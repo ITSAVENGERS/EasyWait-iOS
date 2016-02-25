@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--EasyWait-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -90,7 +90,7 @@
                             <constraint firstItem="jJ0-HF-FcA" firstAttribute="top" secondItem="Bcs-df-egI" secondAttribute="bottom" constant="8" id="qIi-D9-eoO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="z8Q-LT-c7j"/>
+                    <navigationItem key="navigationItem" title="EasyWait" id="z8Q-LT-c7j"/>
                     <connections>
                         <outlet property="activityIndicator" destination="vaD-L4-aKe" id="1hA-Xk-Tnm"/>
                         <outlet property="mobiletxtfield" destination="r9g-XN-erA" id="2Nk-kL-Pnh"/>
@@ -392,12 +392,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sLQ-oM-e7k">
-                                <rect key="frame" x="20" y="160" width="156" height="30"/>
+                                <rect key="frame" x="20" y="160" width="100" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="5xY-YZ-EnI"/>
-                                    <constraint firstAttribute="width" constant="156" id="kID-jQ-52l"/>
+                                    <constraint firstAttribute="width" constant="100" id="kID-jQ-52l"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Subscriber Info"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
@@ -410,13 +411,19 @@
                                     <action selector="SubBTN:" destination="0bk-4E-4Fw" eventType="touchUpInside" id="lzI-ag-8jf"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gj6-TN-JcJ">
+                                <rect key="frame" x="282" y="281" width="37" height="37"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tma-tx-R5c">
-                                <rect key="frame" x="424" y="160" width="156" height="30"/>
+                                <rect key="frame" x="480" y="160" width="100" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="156" id="4kW-hR-nBN"/>
+                                    <constraint firstAttribute="width" constant="100" id="4kW-hR-nBN"/>
                                     <constraint firstAttribute="height" constant="30" id="up7-cm-JGw"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Queue Status"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
@@ -430,11 +437,6 @@
                                     <action selector="SubBTN:" destination="0bk-4E-4Fw" eventType="touchUpInside" id="h3G-aE-hls"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gj6-TN-JcJ">
-                                <rect key="frame" x="282" y="281" width="37" height="37"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="color" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.77325978129999995" green="0.94332912570000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>

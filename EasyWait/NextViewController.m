@@ -26,6 +26,28 @@
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     myToken = [userDefault stringForKey:@"token"];
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(RecieveNotification) name:@"MyNotification" object:nil];
+}
+-(void)RecieveNotification
+{
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Error"
+                                  message:@"Please connect your internet"
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* yesButton = [UIAlertAction
+                                actionWithTitle:@"Ok"
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action)
+                                {
+                                    [self resignFirstResponder];
+                                    
+                                    
+                                }];
+    
+    [alert addAction:yesButton];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -40,7 +62,7 @@
 
 - (IBAction)IncBTN:(id)sender {
     [self.nextLoader startAnimating];
-    self.nextLoader.transform = CGAffineTransformMakeScale(2.0, 2.0);
+    self.nextLoader.transform = CGAffineTransformMakeScale(1.5, 1.5);
     self.nextLoader.layer.cornerRadius = 5.0;
     counterValue++;
     self.counterDisplay.text=[NSString stringWithFormat:@"%d", counterValue];
@@ -51,7 +73,7 @@
 
 - (IBAction)ResetBTN:(id)sender {
     [self.nextLoader startAnimating];
-    self.nextLoader.transform = CGAffineTransformMakeScale(2.0, 2.0);
+    self.nextLoader.transform = CGAffineTransformMakeScale(1.5, 1.5);
     self.nextLoader.layer.cornerRadius = 5.0;
     counterValue=0;
     self.counterDisplay.text=[NSString stringWithFormat:@"%d", counterValue];

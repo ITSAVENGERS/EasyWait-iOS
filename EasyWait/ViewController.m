@@ -21,8 +21,29 @@
     baseManager = [[APIBaseManager alloc]init];
     baseManager.Delegate = self;
     [baseManager InternetChecking];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(RecieveNotification) name:@"MyNotification" object:nil];
 }
-
+-(void)RecieveNotification
+{
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Error"
+                                  message:@"Please connect your internet"
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* yesButton = [UIAlertAction
+                                actionWithTitle:@"Ok"
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action)
+                                {
+                                    [self resignFirstResponder];
+                                    
+                                    
+                                }];
+    
+    [alert addAction:yesButton];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
     [super touchesBegan:touches withEvent:event];
@@ -55,7 +76,7 @@
 
 - (IBAction)MobileBTN:(id)sender {
     [self.activityIndicator startAnimating];
-    self.activityIndicator.transform = CGAffineTransformMakeScale(2.0, 2.0);
+    self.activityIndicator.transform = CGAffineTransformMakeScale(1.5, 1.5);
     self.activityIndicator.layer.cornerRadius = 5.0;
     mNumber = self.mobiletxtfield.text;
     baseManager.Delegate = self;

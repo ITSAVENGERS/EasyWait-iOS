@@ -280,7 +280,7 @@
 				TargetAttributes = {
 					56FA06A21C3E3A3F00511157 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = F5E9J7W65Z;
+						DevelopmentTeam = 3FD9ZFC96N;
 					};
 					56FA06BB1C3E3A3F00511157 = {
 						CreatedOnToolsVersion = 7.2;
@@ -620,7 +620,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = EasyWait/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.its.EasyWait;
+				PRODUCT_BUNDLE_IDENTIFIER = "Ruchin-somal.EasyWait";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -635,7 +635,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = EasyWait/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.its.EasyWait;
+				PRODUCT_BUNDLE_IDENTIFIER = "Ruchin-somal.EasyWait";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
