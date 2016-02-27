@@ -52,7 +52,7 @@
 //    [apiManager getRequest:dict];
     SuccessRequestBlock callback = ^(BOOL wasSuccessful, NSDictionary *dict) {
         if (wasSuccessful) {
-            NSLog(@"%@",dict);
+            //NSLog(@"%@",dict);
             for(id key in dict) {
                 id value = [dict objectForKey:key];
                 [[NSUserDefaults standardUserDefaults] setValue:value forKey:key];
@@ -77,8 +77,15 @@
     NSString *keymatch = [userDefault stringForKey:@"keymatch"];
     SuccessRequestBlockVerify callback = ^(BOOL wasSuccessful, NSDictionary *dict) {
         if (wasSuccessful) {
-            token = dict[@"token"];
-            [[NSUserDefaults standardUserDefaults] setValue:token forKey:@"token"];
+            //NSLog(@"%@",dict);
+            token = [dict[@"token"] description];
+            if ([token isEqualToString:@"undef"]) {
+                if([self.Delegate respondsToSelector:@selector(checkToken)])
+                    [self.Delegate checkToken];
+            }else
+            {
+                [[NSUserDefaults standardUserDefaults] setValue:token forKey:@"token"];
+            }
             if([self.Delegate respondsToSelector:@selector(stopLoader)])
                 [self.Delegate stopLoader];
         } else {

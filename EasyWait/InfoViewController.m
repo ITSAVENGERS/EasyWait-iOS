@@ -130,6 +130,6 @@
     [self.timenow setText:[[dict objectForKey:@"tmnow"] description]];
         //[self.timenow setText:@"8:40 AM"];
         [self.updatetime setText:[[dict objectForKey:@"updtm"]description]];
-    NSLog(@"%@",dict);
+    //NSLog(@"%@",dict);
 }
 @end

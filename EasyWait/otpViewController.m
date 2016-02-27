@@ -63,6 +63,27 @@
     self.setName.hidden = NO;
 }
 
+-(void)checkToken
+{
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Error"
+                                  message:@"Please Enter the correct OTP"
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* yesButton = [UIAlertAction
+                                actionWithTitle:@"Ok"
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action)
+                                {
+                                    [self resignFirstResponder];
+                                    self.otpTextFIeld.text = @"";
+                                }];
+    
+    [alert addAction:yesButton];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 - (IBAction)VerifyBTN:(id)sender {
     self.activityLoader.transform = CGAffineTransformMakeScale(1.5, 1.5);
     self.activityLoader.layer.cornerRadius = 5.0;

@@ -12,7 +12,9 @@
 @protocol BaseManagerProtocol <NSObject>
 -(void)startLoader;
 -(void)stopLoader;
-@optional -(void)InternetStatus:(NSString *)status;
+@optional
+-(void)InternetStatus:(NSString *)status;
+-(void)checkToken;
 @end
 @protocol BaseProtocol <NSObject>
 -(void)DataTransfer:(NSDictionary *)dict;
