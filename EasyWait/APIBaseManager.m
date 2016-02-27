@@ -52,6 +52,7 @@
 //    [apiManager getRequest:dict];
     SuccessRequestBlock callback = ^(BOOL wasSuccessful, NSDictionary *dict) {
         if (wasSuccessful) {
+            NSLog(@"%@",dict);
             for(id key in dict) {
                 id value = [dict objectForKey:key];
                 [[NSUserDefaults standardUserDefaults] setValue:value forKey:key];

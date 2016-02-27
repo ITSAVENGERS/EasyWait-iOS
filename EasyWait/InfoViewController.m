@@ -113,9 +113,9 @@
 -(void)DataTransfer:(NSDictionary *)dict
 {
     [self.infoLoader stopAnimating];
-    [self.cell setText:[dict objectForKey:@"cell"]];
-    [self.found setText:@"Yes"];
-    [self.username setText:[dict objectForKey:@"name"]];
+    [self.cell setText:[[dict objectForKey:@"cell"]description]];
+    [self.found setText:[[dict objectForKey:@"found"]description]];
+    [self.username setText:[[dict objectForKey:@"name"]description]];
     //NSLog(@"%@",dict);
 }
 
@@ -123,12 +123,13 @@
 {
     [self.infoLoader stopAnimating];
     [self.booking_open setText:[dict objectForKey:@"bookings_open"]];
-        [self.counter setText:[dict objectForKey:@"counter"]];
-        [self.queue setText:[dict objectForKey:@"qsize"]];
-        [self.stime setText:[dict objectForKey:@"starttm"]];
-    //NSString *mytimenow = [dict objectForKey:@"tmnow"];
-        [self.timenow setText:@"8:40 AM"];
-        [self.updatetime setText:[dict objectForKey:@"updtm"]];
+        [self.counter setText:[[dict objectForKey:@"counter"] description]];
+        [self.queue setText:[[dict objectForKey:@"qsize"] description]];
+        [self.stime setText:[[dict objectForKey:@"starttm"] description]];
+        //NSString *mytimenow = [dict objectForKey:@"tmnow"];
+    [self.timenow setText:[[dict objectForKey:@"tmnow"] description]];
+        //[self.timenow setText:@"8:40 AM"];
+        [self.updatetime setText:[[dict objectForKey:@"updtm"]description]];
     NSLog(@"%@",dict);
 }
 @end
