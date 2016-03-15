@@ -113,23 +113,60 @@
 -(void)DataTransfer:(NSDictionary *)dict
 {
     [self.infoLoader stopAnimating];
-    [self.cell setText:[[dict objectForKey:@"cell"]description]];
-    [self.found setText:[[dict objectForKey:@"found"]description]];
-    [self.username setText:[[dict objectForKey:@"name"]description]];
-    //NSLog(@"%@",dict);
+    NSString *responseFound = [[dict objectForKey:@"found"]description];
+    if ([responseFound isEqualToString:@"-1"]) {
+        UIAlertController * alert=   [UIAlertController
+                                      alertControllerWithTitle:@"Error"
+                                      message:@"Invalid Number Or Number is not found!!!"
+                                      preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* yesButton = [UIAlertAction
+                                    actionWithTitle:@"Ok"
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action)
+                                    {
+                                        [self resignFirstResponder];
+                                        
+                                        
+                                    }];
+        
+        [alert addAction:yesButton];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+        [self.cell setText:@""];
+        [self.found setText:@""];
+        [self.username setText:@""];
+    }
+    else
+    {
+        [self.cell setText:[[dict objectForKey:@"cell"]description]];
+        [self.found setText:[[dict objectForKey:@"found"]description]];
+        [self.username setText:[[dict objectForKey:@"name"]description]];
+    }
 }
 
 -(void)DataTransferQueue:(NSDictionary *)dict
 {
     [self.infoLoader stopAnimating];
-    [self.booking_open setText:[dict objectForKey:@"bookings_open"]];
+    NSString *responseCounter = [[dict objectForKey:@"counter"]description];
+    if ([responseCounter isEqualToString:@"-1"]) {
+        [self.booking_open setText:@""];
+        [self.counter setText:@""];
+        [self.queue setText:@""];
+        [self.stime setText:@""];
+        [self.timenow setText:@""];
+        [self.updatetime setText:@""];
+    }
+    else
+    {
+        [self.booking_open setText:[dict objectForKey:@"bookings_open"]];
         [self.counter setText:[[dict objectForKey:@"counter"] description]];
         [self.queue setText:[[dict objectForKey:@"qsize"] description]];
         [self.stime setText:[[dict objectForKey:@"starttm"] description]];
         //NSString *mytimenow = [dict objectForKey:@"tmnow"];
-    [self.timenow setText:[[dict objectForKey:@"tmnow"] description]];
+        [self.timenow setText:[[dict objectForKey:@"tmnow"] description]];
         //[self.timenow setText:@"8:40 AM"];
         [self.updatetime setText:[[dict objectForKey:@"updtm"]description]];
-    //NSLog(@"%@",dict);
+    }
 }
 @end
