@@ -15,9 +15,14 @@
 
 @implementation ViewController
 @synthesize notification;
+@synthesize myobject;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // singleton pattern for CommonObject.h
+    myobject = [CommonObject sharedObject];
+    NSLog(@"%@",[myobject someProperty]);
+    
     baseManager = [[APIBaseManager alloc]init];
     baseManager.Delegate = self;
     [baseManager InternetChecking];

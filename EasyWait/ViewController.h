@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommonObject.h"
 #import "APIBaseManager.h"
 #import "otpViewController.h"
 #import "CWStatusBarNotification.h"
@@ -19,5 +20,6 @@
     NSMutableArray *array ;
 }
 @property (strong, nonatomic) CWStatusBarNotification *notification;
+@property CommonObject *myobject;
 @end
 

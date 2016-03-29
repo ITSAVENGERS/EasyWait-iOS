@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		56A05E591C40B06600472FEA /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A05E581C40B06600472FEA /* InfoViewController.m */; };
+		56A4CEEE1C9935100098AFF9 /* CommonObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A4CEED1C9935100098AFF9 /* CommonObject.m */; };
 		56EB286A1C72443400C9A8C9 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 56EB28691C72443400C9A8C9 /* APIManager.m */; };
 		56ED33381C73151400BF3274 /* APIBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 56ED33371C73151400BF3274 /* APIBaseManager.m */; };
 		56EFB85A1C3EEF710073CED9 /* NextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56EFB8591C3EEF710073CED9 /* NextViewController.m */; };
@@ -46,6 +47,8 @@
 		075753BC8F14A45B2EFF48BD /* Pods-EasyWaitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyWaitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EasyWaitTests/Pods-EasyWaitTests.release.xcconfig"; sourceTree = "<group>"; };
 		56A05E571C40B06600472FEA /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		56A05E581C40B06600472FEA /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		56A4CEEC1C9935100098AFF9 /* CommonObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonObject.h; sourceTree = "<group>"; };
+		56A4CEED1C9935100098AFF9 /* CommonObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonObject.m; sourceTree = "<group>"; };
 		56EB28681C72443400C9A8C9 /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
 		56EB28691C72443400C9A8C9 /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
 		56ED33361C73151400BF3274 /* APIBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIBaseManager.h; sourceTree = "<group>"; };
@@ -118,6 +121,42 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		56A4CEE91C9934810098AFF9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				56FA06AC1C3E3A3F00511157 /* ViewController.h */,
+				56FA06AD1C3E3A3F00511157 /* ViewController.m */,
+				56F0A8B61C74F6EE00BC66C2 /* otpViewController.h */,
+				56F0A8B71C74F6EE00BC66C2 /* otpViewController.m */,
+				56EFB8581C3EEF710073CED9 /* NextViewController.h */,
+				56EFB8591C3EEF710073CED9 /* NextViewController.m */,
+				56A05E571C40B06600472FEA /* InfoViewController.h */,
+				56A05E581C40B06600472FEA /* InfoViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		56A4CEEA1C9934A80098AFF9 /* Network Manager */ = {
+			isa = PBXGroup;
+			children = (
+				56EB28681C72443400C9A8C9 /* APIManager.h */,
+				56EB28691C72443400C9A8C9 /* APIManager.m */,
+				56ED33361C73151400BF3274 /* APIBaseManager.h */,
+				56ED33371C73151400BF3274 /* APIBaseManager.m */,
+			);
+			name = "Network Manager";
+			sourceTree = "<group>";
+		};
+		56A4CEEB1C9934C30098AFF9 /* Global File */ = {
+			isa = PBXGroup;
+			children = (
+				56A4CEEA1C9934A80098AFF9 /* Network Manager */,
+				56A4CEEC1C9935100098AFF9 /* CommonObject.h */,
+				56A4CEED1C9935100098AFF9 /* CommonObject.m */,
+			);
+			name = "Global File";
+			sourceTree = "<group>";
+		};
 		56FA069A1C3E3A3F00511157 = {
 			isa = PBXGroup;
 			children = (
@@ -143,25 +182,15 @@
 		56FA06A51C3E3A3F00511157 /* EasyWait */ = {
 			isa = PBXGroup;
 			children = (
+				56A4CEEB1C9934C30098AFF9 /* Global File */,
+				56A4CEE91C9934810098AFF9 /* Controllers */,
 				56FA06A91C3E3A3F00511157 /* AppDelegate.h */,
 				56FA06AA1C3E3A3F00511157 /* AppDelegate.m */,
-				56FA06AC1C3E3A3F00511157 /* ViewController.h */,
-				56FA06AD1C3E3A3F00511157 /* ViewController.m */,
-				56F0A8B61C74F6EE00BC66C2 /* otpViewController.h */,
-				56F0A8B71C74F6EE00BC66C2 /* otpViewController.m */,
-				56EFB8581C3EEF710073CED9 /* NextViewController.h */,
-				56EFB8591C3EEF710073CED9 /* NextViewController.m */,
-				56A05E571C40B06600472FEA /* InfoViewController.h */,
-				56A05E581C40B06600472FEA /* InfoViewController.m */,
 				56FA06AF1C3E3A3F00511157 /* Main.storyboard */,
 				56FA06B21C3E3A3F00511157 /* Assets.xcassets */,
 				56FA06B41C3E3A3F00511157 /* LaunchScreen.storyboard */,
 				56FA06B71C3E3A3F00511157 /* Info.plist */,
 				56FA06A61C3E3A3F00511157 /* Supporting Files */,
-				56EB28681C72443400C9A8C9 /* APIManager.h */,
-				56EB28691C72443400C9A8C9 /* APIManager.m */,
-				56ED33361C73151400BF3274 /* APIBaseManager.h */,
-				56ED33371C73151400BF3274 /* APIBaseManager.m */,
 			);
 			path = EasyWait;
 			sourceTree = "<group>";
@@ -280,7 +309,7 @@
 				TargetAttributes = {
 					56FA06A21C3E3A3F00511157 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 3FD9ZFC96N;
+						DevelopmentTeam = 5KVBG6RVHX;
 					};
 					56FA06BB1C3E3A3F00511157 = {
 						CreatedOnToolsVersion = 7.2;
@@ -472,6 +501,7 @@
 				56FA06AE1C3E3A3F00511157 /* ViewController.m in Sources */,
 				56EFB85A1C3EEF710073CED9 /* NextViewController.m in Sources */,
 				56EB286A1C72443400C9A8C9 /* APIManager.m in Sources */,
+				56A4CEEE1C9935100098AFF9 /* CommonObject.m in Sources */,
 				56FA06AB1C3E3A3F00511157 /* AppDelegate.m in Sources */,
 				56A05E591C40B06600472FEA /* InfoViewController.m in Sources */,
 				56FA06A81C3E3A3F00511157 /* main.m in Sources */,
@@ -619,8 +649,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = EasyWait/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Ruchin-somal.EasyWait";
+				PRODUCT_BUNDLE_IDENTIFIER = demo.EasyWait;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -634,8 +665,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = EasyWait/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Ruchin-somal.EasyWait";
+				PRODUCT_BUNDLE_IDENTIFIER = demo.EasyWait;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
