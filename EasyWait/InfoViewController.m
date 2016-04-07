@@ -159,14 +159,29 @@
     }
     else
     {
+        NSString *startTime = [self convertTime:[[dict objectForKey:@"starttm"] description]];
+        NSString *timeNow = [self convertTime:[[dict objectForKey:@"tmnow"] description]];
+        NSString *updateTime = [self convertTime:[[dict objectForKey:@"updtm"] description]];
         [self.booking_open setText:[dict objectForKey:@"bookings_open"]];
         [self.counter setText:[[dict objectForKey:@"counter"] description]];
         [self.queue setText:[[dict objectForKey:@"qsize"] description]];
-        [self.stime setText:[[dict objectForKey:@"starttm"] description]];
+        [self.stime setText:startTime];
         //NSString *mytimenow = [dict objectForKey:@"tmnow"];
-        [self.timenow setText:[[dict objectForKey:@"tmnow"] description]];
+        [self.timenow setText:timeNow];
         //[self.timenow setText:@"8:40 AM"];
-        [self.updatetime setText:[[dict objectForKey:@"updtm"]description]];
+        [self.updatetime setText:updateTime];
+
     }
+}
+-(NSString *)convertTime:(NSString *)epochTime
+{
+    // Convert NSString to NSTimeInterval
+    NSTimeInterval seconds = [epochTime doubleValue];
+    
+    NSDate *epochNSDate = [[NSDate alloc] initWithTimeIntervalSince1970:seconds];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd \n HH:mm:ss"];
+    NSString *time = [dateFormatter stringFromDate:epochNSDate];
+    return time;
 }
 @end
