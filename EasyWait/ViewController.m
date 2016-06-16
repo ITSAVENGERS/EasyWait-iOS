@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "SWRevealViewController.h"
+#import "UIView+Toast.h"
 
 @interface ViewController () <BaseManagerProtocol>
 @property (weak, nonatomic) IBOutlet UITextField *mobiletxtfield;
@@ -19,6 +21,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = self.view.bounds;
+    gradient.colors = [NSArray arrayWithObjects: (id)[[UIColor colorWithRed:0/255.0 green:195/255.0 blue:147/255.0 alpha:1.0] CGColor], (id)[[UIColor whiteColor] CGColor], nil];
+    [self.view.layer insertSublayer:gradient atIndex:0];
+    
     // singleton pattern for CommonObject.h
     myobject = [CommonObject sharedObject];
     NSLog(@"%@",[myobject someProperty]);
@@ -27,6 +34,7 @@
     baseManager.Delegate = self;
     [baseManager InternetChecking];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(RecieveNotification) name:@"MyNotification" object:nil];
+    //[self.view makeToast:@"Successfull" duration:3 position:CSToastPositionCenter];
 }
 -(void)RecieveNotification
 {

@@ -24,12 +24,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-EasyWaitTests.xcscheme</key>
+		<key>SWRevealViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-EasyWaitUITests.xcscheme</key>
+		<key>Toast.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,7 +37,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>168BE4ADBC4819525D0E8B7A84DBF9E9</key>
+		<key>24D4F8512D261A56653BDD0FC77466B3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3634042E061DFEC8305F18BEF4205466</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -47,22 +52,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6B1651A992CF07BB238B41B96FC31E78</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>928353533005A4198EBDA5B700D37B64</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D6B3F70FBE4B6C55E6D9D67230E64A45</key>
+		<key>D7C7D5BE80D9A225BF88F0CA731F4383</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D7C7D5BE80D9A225BF88F0CA731F4383</key>
+		<key>D8B0A33277BBD883872E9E9AB4C0D2E8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

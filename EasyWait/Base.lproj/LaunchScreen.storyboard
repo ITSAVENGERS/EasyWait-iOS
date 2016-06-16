@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,16 +17,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="waiting1" translatesAutoresizingMaskIntoConstraints="NO" id="dsC-Gm-Zn6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="easybg" translatesAutoresizingMaskIntoConstraints="NO" id="b8t-tZ-ndB">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For them who hate to wait." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tV7-li-dME">
+                                <rect key="frame" x="20" y="290" width="560" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="2Jz-xZ-51Z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_trans" translatesAutoresizingMaskIntoConstraints="NO" id="SZs-Hy-dUd">
+                                <rect key="frame" x="240" y="162" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="bzo-f0-8DK"/>
+                                    <constraint firstAttribute="width" constant="120" id="iZt-4E-4oM"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="dsC-Gm-Zn6" secondAttribute="trailing" id="301-vr-mrX"/>
-                            <constraint firstItem="dsC-Gm-Zn6" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="L2C-1k-aLV"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="dsC-Gm-Zn6" secondAttribute="bottom" id="Uzk-Jw-6AI"/>
-                            <constraint firstItem="dsC-Gm-Zn6" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="tx6-HF-4L6"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="b8t-tZ-ndB" secondAttribute="bottom" id="2Fe-dB-aNf"/>
+                            <constraint firstItem="SZs-Hy-dUd" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Har-uY-6aH"/>
+                            <constraint firstAttribute="trailing" secondItem="b8t-tZ-ndB" secondAttribute="trailing" id="LFZ-3A-rGd"/>
+                            <constraint firstItem="tV7-li-dME" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="PBd-X7-btP"/>
+                            <constraint firstItem="tV7-li-dME" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="20" id="QZ0-FA-ZRX"/>
+                            <constraint firstItem="b8t-tZ-ndB" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="YBX-MN-yDp"/>
+                            <constraint firstAttribute="trailing" secondItem="tV7-li-dME" secondAttribute="trailing" constant="20" id="enH-FL-c6w"/>
+                            <constraint firstItem="tV7-li-dME" firstAttribute="top" secondItem="SZs-Hy-dUd" secondAttribute="bottom" constant="8" id="s1U-hR-LP8"/>
+                            <constraint firstItem="b8t-tZ-ndB" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="sLE-ST-tvt"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -36,6 +57,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="waiting1" width="320" height="568"/>
+        <image name="easybg" width="619" height="1078"/>
+        <image name="icon_trans" width="1024" height="1024"/>
     </resources>
 </document>
