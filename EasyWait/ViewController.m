@@ -28,7 +28,7 @@
     
     // singleton pattern for CommonObject.h
     myobject = [CommonObject sharedObject];
-    NSLog(@"%@",[myobject someProperty]);
+    //NSLog(@"%@",[myobject someProperty]);
     
     baseManager = [[APIBaseManager alloc]init];
     baseManager.Delegate = self;
