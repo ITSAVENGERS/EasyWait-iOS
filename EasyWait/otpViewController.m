@@ -7,8 +7,12 @@
 //
 
 #import "otpViewController.h"
+#import "NextViewController.h"
 
 @interface otpViewController ()
+{
+    NSString *token;
+}
 @property (weak, nonatomic) IBOutlet UITextField *otpTextFIeld;
 - (IBAction)VerifyBTN:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
@@ -21,6 +25,7 @@
 @synthesize mobileNumber;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    token = [[NSString alloc]init];
     self.manager = [HttpManager sharedManager];
     self.myobject = [CommonObject sharedObject];
     CAGradientLayer *gradient = [CAGradientLayer layer];
@@ -36,39 +41,47 @@
 
 - (IBAction)VerifyBTN:(id)sender {
      NSString *otp = self.otpTextFIeld.text;
-    if (self.otpTextFIeld.text ==nil && [self.otpTextFIeld.text isEqualToString:@""])
+    if (self.otpTextFIeld.text == nil && [self.otpTextFIeld.text isEqualToString:@""])
     {
-        
+        [self.myobject showAlert:@"Error" andTitle:@"Please Enter Valid OTP" onView:self];
     }
     else
     {
-        UIAlertController * alert=   [UIAlertController
-                                      alertControllerWithTitle:@"Error"
-                                      message:@"Mobile number is Empty"
-                                      preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction* yesButton = [UIAlertAction
-                                    actionWithTitle:@"Ok"
-                                    style:UIAlertActionStyleDefault
-                                    handler:^(UIAlertAction * action)
-                                    {
-                                        [self resignFirstResponder];
-                                        
-                                        
-                                    }];
-        
-        [alert addAction:yesButton];
-        
-        [self presentViewController:alert animated:YES completion:nil];
+        [MyLoader showLoadingView];
+        NSDictionary *dict = @{@"service":_service, @"otp_start":_otp_start,@"keymatch":_keymatch};
+        NSString *url = [NSString stringWithFormat:@"%@%@%@/%@",BASEURL,OTP_VERIFY,mobileNumber,otp];
+        [self.manager getRequestWithCallBack:dict andUrl:url withCallback:^(BOOL wasSuccessful, NSDictionary *dict) {
+            [MyLoader hideLoadingView];
+            if (wasSuccessful) {
+                token = [dict[@"token"] description];
+            } else {
+                [self.view makeToast:@"Something went Wrong ,We are working on it !!!" duration:2.0 position:CSToastPositionCenter];
+            }
+        }];
     }
 }
+
 - (IBAction)SetNameAndNextView:(id)sender {
     NSString *name = self.nameTextField.text;
     NSCharacterSet *set = [NSCharacterSet URLQueryAllowedCharacterSet];
     NSString *urlName = [name stringByAddingPercentEncodingWithAllowedCharacters:set];
-    if (self.nameTextField.text!=nil &&![self.nameTextField.text isEqualToString:@""])
+    if (self.nameTextField.text == nil && [self.nameTextField.text isEqualToString:@""])
     {
-        
+        [self.myobject showAlert:@"Error" andTitle:@"Please Enter your name" onView:self];
+    } else {
+        [MyLoader showLoadingView];
+        NSString *url = [NSString stringWithFormat:@"%@%@%@/%@",BASEURL,SET_NAME,token,urlName];
+        [self.manager getRequestWithCallBack:nil andUrl:url withCallback:^(BOOL wasSuccessful, NSDictionary *dict) {
+            [MyLoader hideLoadingView];
+            if (wasSuccessful) {
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                NextViewController *next = [storyboard instantiateViewControllerWithIdentifier:@"next"];
+                next.myToken = token;
+                [self.navigationController pushViewController:next animated:YES];
+            } else {
+                [self.view makeToast:@"Something went Wrong ,We are working on it !!!" duration:2.0 position:CSToastPositionCenter];
+            }
+        }];
     }
 }
 @end

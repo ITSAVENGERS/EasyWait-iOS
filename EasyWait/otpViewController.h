@@ -10,10 +10,9 @@
 #import "CommonObject.h"
 #import "HttpManager.h"
 #import "MyLoader.h"
+#import "UIView+Toast.h"
 
 @interface otpViewController : UIViewController<UITextFieldDelegate>
-{
-}
 @property CommonObject *myobject;
 @property HttpManager *manager;
 @property(strong,nonatomic)NSString *mobileNumber;

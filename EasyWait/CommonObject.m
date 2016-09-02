@@ -10,12 +10,12 @@
 
 NSString *const BASEURL = @"http://ewait.lkfans.org/api/";
 NSString *const LOGIN = @"vendor/register/";
-NSString *const OTP_VERIFY = @"ADDRESS";
-NSString *const SET_NAME = @"PROPERTY";
-NSString *const NEXT_TURN = @"NEARBY";
-NSString *const RESET_TURN = @"http://www.addnum.com/addnum.php?shortcut=";
-NSString *const PUBLIC_INFO = @"";
-NSString *const GET_INFO = @"";
+NSString *const OTP_VERIFY = @"vendor/verify/";
+NSString *const SET_NAME = @"vendor/setname/";
+NSString *const NEXT_TURN = @"qstatus/next/";
+NSString *const RESET_TURN = @"qstatus/reset/";
+NSString *const PUBLIC_INFO = @"qstatus/publicinfo/";
+NSString *const GET_INFO = @"qstatus/get/";
 NSString *const APP_SHARE_URL = @"https://geo.itunes.apple.com/in/app/addnum/id1064093460?mt=8";
 
 @implementation CommonObject

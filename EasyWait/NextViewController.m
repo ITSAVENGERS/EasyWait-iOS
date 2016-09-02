@@ -29,32 +29,7 @@
     [self.view.layer insertSublayer:gradient atIndex:0];
     
     counterValue=0;
-    
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    myToken = [userDefault stringForKey:@"token"];
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(RecieveNotification) name:@"MyNotification" object:nil];
-}
--(void)RecieveNotification
-{
-    UIAlertController * alert=   [UIAlertController
-                                  alertControllerWithTitle:@"Error"
-                                  message:@"Please connect your internet"
-                                  preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction* yesButton = [UIAlertAction
-                                actionWithTitle:@"Ok"
-                                style:UIAlertActionStyleDefault
-                                handler:^(UIAlertAction * action)
-                                {
-                                    [self resignFirstResponder];
-                                    
-                                    
-                                }];
-    
-    [alert addAction:yesButton];
-    
-    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -68,20 +43,38 @@
 
 
 - (IBAction)IncBTN:(id)sender {
-    [self.nextLoader startAnimating];
-    self.nextLoader.transform = CGAffineTransformMakeScale(1.5, 1.5);
-    self.nextLoader.layer.cornerRadius = 5.0;
     counterValue++;
     self.counterDisplay.text=[NSString stringWithFormat:@"%d", counterValue];
-    
+    [self set_reset_counter:@"next"];
 }
 
 - (IBAction)ResetBTN:(id)sender {
-    [self.nextLoader startAnimating];
-    self.nextLoader.transform = CGAffineTransformMakeScale(1.5, 1.5);
-    self.nextLoader.layer.cornerRadius = 5.0;
     counterValue=0;
     self.counterDisplay.text=[NSString stringWithFormat:@"%d", counterValue];
+    [self set_reset_counter:@"reset"];
+}
+
+-(void)set_reset_counter:(NSString *)type {
+    [MyLoader showLoadingView];
+    NSString *url;
+    if ([type isEqualToString:@"next"]) {
+        url = [NSString stringWithFormat:@"%@%@%@",BASEURL,NEXT_TURN,self.myToken];
+    } else {
+        url = [NSString stringWithFormat:@"%@%@%@",BASEURL,RESET_TURN,self.myToken];
+    }
+    [self.manager getRequestWithCallBack:nil andUrl:url withCallback:^(BOOL wasSuccessful, NSDictionary *dict) {
+        [MyLoader hideLoadingView];
+        if (wasSuccessful) {
+            [self.view makeToast:@"Your turn is updated !!!" duration:2.0 position:CSToastPositionCenter];
+        } else {
+            [self.view makeToast:@"Something went Wrong ,We are working on it !!!" duration:2.0 position:CSToastPositionCenter];
+        }
+    }];
+}
+- (IBAction)infoButtonPressed:(id)sender {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    InfoViewController *info = [storyboard instantiateViewControllerWithIdentifier:@"info"];
+    [self.navigationController pushViewController:info animated:YES];
 }
 
 @end

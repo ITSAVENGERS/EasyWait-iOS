@@ -12,6 +12,7 @@
 #import "MyLoader.h"
 #import "otpViewController.h"
 #import "CWStatusBarNotification.h"
+#import "UIView+Toast.h"
 
 @interface ViewController : UIViewController<UITextFieldDelegate>
 {

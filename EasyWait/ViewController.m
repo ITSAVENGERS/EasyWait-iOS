@@ -7,8 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "SWRevealViewController.h"
-#import "UIView+Toast.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *mobiletxtfield;
@@ -55,10 +53,17 @@
         }
     else
     {
-        [self.manager getRequestWithCallBack:nil andUrl:[NSString stringWithFormat:@"%@%@%@",BASEURL,LOGIN,mobileNumber] withCallback:^(BOOL wasSuccessful, NSDictionary *dict) {
+        [MyLoader showLoadingView];
+        NSString *url = [NSString stringWithFormat:@"%@%@%@",BASEURL,LOGIN,mobileNumber];
+        [self.manager getRequestWithCallBack:nil andUrl:url withCallback:^(BOOL wasSuccessful, NSDictionary *dict) {
+            [MyLoader hideLoadingView];
             if (wasSuccessful) {
                 NSLog(@"%@",dict);
+                if ([dict[@"status"]  isEqual: @"Exception"]) {
+                    [self.view makeToast:@"Please try after some time !!!" duration:2.0 position:CSToastPositionCenter];
+                } else {
                 [self performSegueWithIdentifier:@"otpSegue" sender:dict];
+                }
             } else {
                 [self.view makeToast:@"Something went Wrong ,We are working on it !!!" duration:2.0 position:CSToastPositionCenter];
             }

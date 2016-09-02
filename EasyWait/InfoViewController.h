@@ -10,6 +10,7 @@
 #import "CommonObject.h"
 #import "HttpManager.h"
 #import "MyLoader.h"
+#import "UIView+Toast.h"
 
 @interface InfoViewController : UIViewController
 {
