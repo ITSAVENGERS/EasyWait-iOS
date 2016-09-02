@@ -21,5 +21,7 @@ FOUNDATION_EXPORT NSString *const APP_SHARE_URL;
 
 @interface CommonObject : NSObject
 + (id)sharedObject;
-+(void)showAlertViewShow:(NSString *)message OnViewController:(UIViewController *)viewController YesAction:(void (^)(UIAlertAction *yesAction))yesHandler;
+
+-(void)showAlertViewShow:(NSString *)message OnViewController:(UIViewController *)viewController YesAction:(void (^)(UIAlertAction *yesAction))yesHandler NoAction:(void (^)(UIAlertAction *noAction))noHandler;
+-(void)showAlert:(NSString *)title andTitle:(NSString *)message onView:(UIViewController *)view;
 @end

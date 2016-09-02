@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "APIBaseManager.h"
 
 @interface NextViewController : UIViewController
 {
-    APIBaseManager *baseManager;
     NSString *myToken;
 }
 //@property(strong,nonatomic)NSString *myLog;

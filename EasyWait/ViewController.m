@@ -10,9 +10,8 @@
 #import "SWRevealViewController.h"
 #import "UIView+Toast.h"
 
-@interface ViewController () <BaseManagerProtocol>
+@interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *mobiletxtfield;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @end
 
 @implementation ViewController
@@ -21,41 +20,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.shareObject = [HttpManager sharedManager];
+    self.myobject = [CommonObject sharedObject];
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = self.view.bounds;
     gradient.colors = [NSArray arrayWithObjects: (id)[[UIColor colorWithRed:0/255.0 green:195/255.0 blue:147/255.0 alpha:1.0] CGColor], (id)[[UIColor whiteColor] CGColor], nil];
     [self.view.layer insertSublayer:gradient atIndex:0];
     
-    // singleton pattern for CommonObject.h
-    myobject = [CommonObject sharedObject];
-    //NSLog(@"%@",[myobject someProperty]);
-    
-    baseManager = [[APIBaseManager alloc]init];
-    baseManager.Delegate = self;
-    [baseManager InternetChecking];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(RecieveNotification) name:@"MyNotification" object:nil];
-    //[self.view makeToast:@"Successfull" duration:3 position:CSToastPositionCenter];
-}
--(void)RecieveNotification
-{
-    UIAlertController * alert=   [UIAlertController
-                                  alertControllerWithTitle:@"Error"
-                                  message:@"Please connect your internet"
-                                  preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction* yesButton = [UIAlertAction
-                                actionWithTitle:@"Ok"
-                                style:UIAlertActionStyleDefault
-                                handler:^(UIAlertAction * action)
-                                {
-                                    [self resignFirstResponder];
-                                    
-                                    
-                                }];
-    
-    [alert addAction:yesButton];
-    
-    [self presentViewController:alert animated:YES completion:nil];
 }
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
@@ -73,50 +44,22 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)stopLoader
 {
     [self performSegueWithIdentifier:@"otpSegue" sender:@"otpSegue"];
-    [self.activityIndicator stopAnimating];
-}
-
--(void)startLoader
-{
-    
 }
 
 - (IBAction)MobileBTN:(id)sender {
-    self.activityIndicator.transform = CGAffineTransformMakeScale(1.5, 1.5);
-    self.activityIndicator.layer.cornerRadius = 5.0;
-    mNumber = self.mobiletxtfield.text;
-    baseManager.Delegate = self;
-        if (self.mobiletxtfield.text!=nil &&![self.mobiletxtfield.text isEqualToString:@""])
+    NSString *mobileNumber = self.mobiletxtfield.text;
+        if (mobileNumber ==nil && [mobileNumber isEqualToString:@""])
         {
-            [self.activityIndicator startAnimating];
-            [baseManager RegisterNumber:mNumber];
+            
         }
     else
     {
-        UIAlertController * alert=   [UIAlertController
-                                      alertControllerWithTitle:@"Error"
-                                      message:@"Mobile number is Empty"
-                                      preferredStyle:UIAlertControllerStyleAlert];
         
-        UIAlertAction* yesButton = [UIAlertAction
-                                    actionWithTitle:@"Ok"
-                                    style:UIAlertActionStyleDefault
-                                    handler:^(UIAlertAction * action)
-                                    {
-                                        [self resignFirstResponder];
-                                        
-                                        
-                                    }];
-        
-        [alert addAction:yesButton];
-        
-        [self presentViewController:alert animated:YES completion:nil];
     }
     //[self performSegueWithIdentifier:@"otpSegue" sender:@"otpSegue"];
 }
@@ -125,7 +68,7 @@
     otpViewController *otpviewController=[segue destinationViewController];
         if ([segue.identifier isEqualToString:@"otpSegue"])
     {
-        otpviewController.myNumber = mNumber;
+        
     }
 
 }

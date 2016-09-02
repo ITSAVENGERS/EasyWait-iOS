@@ -8,13 +8,12 @@
 
 #import "otpViewController.h"
 
-@interface otpViewController ()<BaseManagerProtocol>
+@interface otpViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *otpTextFIeld;
 - (IBAction)VerifyBTN:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 - (IBAction)SetNameAndNextView:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *setName;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityLoader;
 
 @end
 
@@ -27,7 +26,6 @@
     gradient.colors = [NSArray arrayWithObjects: (id)[[UIColor colorWithRed:0/255.0 green:195/255.0 blue:147/255.0 alpha:1.0] CGColor], (id)[[UIColor whiteColor] CGColor], nil];
     [self.view.layer insertSublayer:gradient atIndex:0];
     
-    baseManager = [[APIBaseManager alloc]init];
     self.setName.hidden = YES;
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(RecieveNotification) name:@"MyNotification" object:nil];
 }
@@ -57,16 +55,6 @@
     [super didReceiveMemoryWarning];
 }
 
--(void)startLoader
-{
-    [self.activityLoader startAnimating];
-}
-
--(void)stopLoader
-{
-    [self.activityLoader stopAnimating];
-    self.setName.hidden = NO;
-}
 
 -(void)checkToken
 {
@@ -90,14 +78,9 @@
 }
 
 - (IBAction)VerifyBTN:(id)sender {
-    self.activityLoader.transform = CGAffineTransformMakeScale(1.5, 1.5);
-    self.activityLoader.layer.cornerRadius = 5.0;
      NSString *otpNum = self.otpTextFIeld.text;
-    baseManager.Delegate = self;
     if (self.otpTextFIeld.text!=nil &&![self.otpTextFIeld.text isEqualToString:@""])
     {
-        [self.activityLoader startAnimating];
-        [baseManager VerifyNumber:myNumber AndOTP:otpNum];
     }
     else
     {
@@ -127,7 +110,7 @@
     NSString *urlName = [name stringByAddingPercentEncodingWithAllowedCharacters:set];
     if (self.nameTextField.text!=nil &&![self.nameTextField.text isEqualToString:@""])
     {
-        [baseManager RegisterNname:urlName];
+        
     }
 }
 @end

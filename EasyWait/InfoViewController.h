@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "APIBaseManager.h"
 
 @interface InfoViewController : UIViewController
 {
-    APIBaseManager *baseManager;
     NSString *infoNumber;
 }
 @end

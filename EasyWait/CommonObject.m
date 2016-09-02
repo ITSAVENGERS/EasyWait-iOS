@@ -28,7 +28,7 @@ NSString *const APP_SHARE_URL = @"https://geo.itunes.apple.com/in/app/addnum/id1
     return sharedMyManager;
 }
 
-+(void)showAlertViewShow:(NSString *)message OnViewController:(UIViewController *)viewController YesAction:(void (^)(UIAlertAction *yesAction))yesHandler;
+-(void)showAlertViewShow:(NSString *)message OnViewController:(UIViewController *)viewController YesAction:(void (^)(UIAlertAction *yesAction))yesHandler NoAction:(void (^)(UIAlertAction *noAction))noHandler;
 {
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:@"ERROR"
@@ -40,8 +40,25 @@ NSString *const APP_SHARE_URL = @"https://geo.itunes.apple.com/in/app/addnum/id1
                                 style:UIAlertActionStyleDefault
                                 handler:yesHandler];
     
-    [alert addAction:yesButton];
+    UIAlertAction* noButton = [UIAlertAction
+                                actionWithTitle:@"No"
+                                style:UIAlertActionStyleDefault
+                                handler:noHandler];
     
+    [alert addAction:yesButton];
+    [alert addAction:noButton];
     [viewController presentViewController:alert animated:YES completion:nil];
+}
+
+-(void)showAlert:(NSString *)title andTitle:(NSString *)message onView:(UIViewController *)view {
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:title
+                                  message:message
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* button1 = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    
+    [alert addAction:button1];
+    [view presentViewController:alert animated:YES completion:nil];
 }
 @end

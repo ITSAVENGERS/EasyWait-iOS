@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		56A05E591C40B06600472FEA /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A05E581C40B06600472FEA /* InfoViewController.m */; };
-		56EB286A1C72443400C9A8C9 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 56EB28691C72443400C9A8C9 /* APIManager.m */; };
-		56ED33381C73151400BF3274 /* APIBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 56ED33371C73151400BF3274 /* APIBaseManager.m */; };
 		56EFB85A1C3EEF710073CED9 /* NextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56EFB8591C3EEF710073CED9 /* NextViewController.m */; };
 		56F0A8B81C74F6EE00BC66C2 /* otpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F0A8B71C74F6EE00BC66C2 /* otpViewController.m */; };
 		56F455CD1CC2B5D5008197F3 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F455CC1CC2B5D5008197F3 /* MasterViewController.m */; };
@@ -51,10 +49,6 @@
 		075753BC8F14A45B2EFF48BD /* Pods-EasyWaitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyWaitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EasyWaitTests/Pods-EasyWaitTests.release.xcconfig"; sourceTree = "<group>"; };
 		56A05E571C40B06600472FEA /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		56A05E581C40B06600472FEA /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
-		56EB28681C72443400C9A8C9 /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
-		56EB28691C72443400C9A8C9 /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
-		56ED33361C73151400BF3274 /* APIBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIBaseManager.h; sourceTree = "<group>"; };
-		56ED33371C73151400BF3274 /* APIBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIBaseManager.m; sourceTree = "<group>"; };
 		56EFB8581C3EEF710073CED9 /* NextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextViewController.h; sourceTree = "<group>"; };
 		56EFB8591C3EEF710073CED9 /* NextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextViewController.m; sourceTree = "<group>"; };
 		56F0A8B61C74F6EE00BC66C2 /* otpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = otpViewController.h; sourceTree = "<group>"; };
@@ -157,10 +151,6 @@
 			children = (
 				827B60771D79F57300BDCDEA /* HttpManager.h */,
 				827B60781D79F57300BDCDEA /* HttpManager.m */,
-				56EB28681C72443400C9A8C9 /* APIManager.h */,
-				56EB28691C72443400C9A8C9 /* APIManager.m */,
-				56ED33361C73151400BF3274 /* APIBaseManager.h */,
-				56ED33371C73151400BF3274 /* APIBaseManager.m */,
 				827B607A1D79F5BC00BDCDEA /* MyLoader.h */,
 				827B607B1D79F5BC00BDCDEA /* MyLoader.m */,
 				827B607C1D79F5BC00BDCDEA /* CommonObject.h */,
@@ -518,13 +508,11 @@
 			files = (
 				56F0A8B81C74F6EE00BC66C2 /* otpViewController.m in Sources */,
 				827B607F1D79F5BC00BDCDEA /* CommonObject.m in Sources */,
-				56ED33381C73151400BF3274 /* APIBaseManager.m in Sources */,
 				56F455D01CC2B5E7008197F3 /* SideBarViewController.m in Sources */,
 				827B60791D79F57300BDCDEA /* HttpManager.m in Sources */,
 				56F455CD1CC2B5D5008197F3 /* MasterViewController.m in Sources */,
 				56FA06AE1C3E3A3F00511157 /* ViewController.m in Sources */,
 				56EFB85A1C3EEF710073CED9 /* NextViewController.m in Sources */,
-				56EB286A1C72443400C9A8C9 /* APIManager.m in Sources */,
 				56FA06AB1C3E3A3F00511157 /* AppDelegate.m in Sources */,
 				56A05E591C40B06600472FEA /* InfoViewController.m in Sources */,
 				827B607E1D79F5BC00BDCDEA /* MyLoader.m in Sources */,

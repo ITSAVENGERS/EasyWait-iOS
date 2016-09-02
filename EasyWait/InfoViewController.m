@@ -8,7 +8,7 @@
 
 #import "InfoViewController.h"
 
-@interface InfoViewController ()<BaseProtocol>
+@interface InfoViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *mobiletxt;
 - (IBAction)SubBTN:(id)sender;
 - (IBAction)QueueBtn:(id)sender;
@@ -21,7 +21,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *username;
 @property (weak, nonatomic) IBOutlet UILabel *found;
 @property (weak, nonatomic) IBOutlet UILabel *cell;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *infoLoader;
 @end
 
 @implementation InfoViewController
@@ -33,7 +32,6 @@
     gradient.colors = [NSArray arrayWithObjects: (id)[[UIColor colorWithRed:0/255.0 green:195/255.0 blue:147/255.0 alpha:1.0] CGColor], (id)[[UIColor whiteColor] CGColor], nil];
     [self.view.layer insertSublayer:gradient atIndex:0];
     
-    baseManager = [[APIBaseManager alloc]init];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(RecieveNotification) name:@"MyNotification" object:nil];
 }
 -(void)RecieveNotification
@@ -63,15 +61,10 @@
 }
 
 - (IBAction)SubBTN:(id)sender {
-    [self.view bringSubviewToFront:self.infoLoader];
-    self.infoLoader.transform = CGAffineTransformMakeScale(1.5, 1.5);
-    self.infoLoader.layer.cornerRadius = 5.0;
     infoNumber = self.mobiletxt.text;
-    baseManager.BaseDelegate = self;
     if (self.mobiletxt.text!=nil &&![self.mobiletxt.text isEqualToString:@""])
     {
-        [self.infoLoader startAnimating];
-        [baseManager PublicInfo:infoNumber];
+        
     }
     else
     {
@@ -97,15 +90,10 @@
 }
 
 - (IBAction)QueueBtn:(id)sender {
-    [self.view bringSubviewToFront:self.infoLoader];
-    self.infoLoader.transform = CGAffineTransformMakeScale(1.5, 1.5);
-    self.infoLoader.layer.cornerRadius = 5.0;
     infoNumber = self.mobiletxt.text;
-    baseManager.BaseDelegate = self;
     if (self.mobiletxt.text!=nil &&![self.mobiletxt.text isEqualToString:@""])
     {
-        [self.infoLoader startAnimating];
-        [baseManager GetPublicInfo:infoNumber];
+        
     }
 }
 
@@ -117,7 +105,6 @@
 
 -(void)DataTransfer:(NSDictionary *)dict
 {
-    [self.infoLoader stopAnimating];
     NSString *responseFound = [[dict objectForKey:@"found"]description];
     if ([responseFound isEqualToString:@"-1"]) {
         UIAlertController * alert=   [UIAlertController
@@ -152,7 +139,6 @@
 
 -(void)DataTransferQueue:(NSDictionary *)dict
 {
-    [self.infoLoader stopAnimating];
     NSString *responseCounter = [[dict objectForKey:@"counter"]description];
     if ([responseCounter isEqualToString:@"-1"]) {
         [self.booking_open setText:@""];

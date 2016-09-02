@@ -8,7 +8,7 @@
 
 #import "NextViewController.h"
 
-@interface NextViewController ()<BaseManagerProtocol>
+@interface NextViewController ()
 {
     int counterValue;
 }
@@ -27,7 +27,7 @@
     [self.view.layer insertSublayer:gradient atIndex:0];
     
     counterValue=0;
-    baseManager = [[APIBaseManager alloc]init];
+    
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     myToken = [userDefault stringForKey:@"token"];
     [super viewDidLoad];
@@ -71,8 +71,6 @@
     self.nextLoader.layer.cornerRadius = 5.0;
     counterValue++;
     self.counterDisplay.text=[NSString stringWithFormat:@"%d", counterValue];
-    baseManager.Delegate = self;
-    [baseManager NextTurn:myToken];
     
 }
 
@@ -82,17 +80,6 @@
     self.nextLoader.layer.cornerRadius = 5.0;
     counterValue=0;
     self.counterDisplay.text=[NSString stringWithFormat:@"%d", counterValue];
-    baseManager.Delegate = self;
-    [baseManager ResetTurn:myToken];
 }
 
--(void)startLoader
-{
-    
-}
-
--(void)stopLoader
-{
-    [self.nextLoader stopAnimating];
-}
 @end
