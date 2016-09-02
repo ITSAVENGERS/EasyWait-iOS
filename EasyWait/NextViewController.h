@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommonObject.h"
+#import "HttpManager.h"
+#import "MyLoader.h"
 
 @interface NextViewController : UIViewController
 {
     NSString *myToken;
 }
 //@property(strong,nonatomic)NSString *myLog;
+@property CommonObject *myobject;
+@property HttpManager *manager;
 @end

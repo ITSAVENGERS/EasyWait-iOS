@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommonObject.h"
+#import "HttpManager.h"
+#import "MyLoader.h"
 
 @interface otpViewController : UIViewController<UITextFieldDelegate>
 {
 }
-@property(strong,nonatomic)NSString *myNumber;
+@property CommonObject *myobject;
+@property HttpManager *manager;
+@property(strong,nonatomic)NSString *mobileNumber;
+@property(strong,nonatomic)NSString *otp_start;
+@property(strong,nonatomic)NSString *service;
+@property(strong,nonatomic)NSString *keymatch;
 @end

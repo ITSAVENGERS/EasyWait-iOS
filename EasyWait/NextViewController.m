@@ -21,6 +21,8 @@
 
 @implementation NextViewController
 - (void)viewDidLoad {
+    self.manager = [HttpManager sharedManager];
+    self.myobject = [CommonObject sharedObject];
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = self.view.bounds;
     gradient.colors = [NSArray arrayWithObjects: (id)[[UIColor colorWithRed:0/255.0 green:195/255.0 blue:147/255.0 alpha:1.0] CGColor], (id)[[UIColor whiteColor] CGColor], nil];

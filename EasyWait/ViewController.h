@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CommonObject.h"
 #import "HttpManager.h"
+#import "MyLoader.h"
 #import "otpViewController.h"
 #import "CWStatusBarNotification.h"
 
@@ -18,6 +19,6 @@
 }
 @property (strong, nonatomic) CWStatusBarNotification *notification;
 @property CommonObject *myobject;
-@property HttpManager *shareObject;
+@property HttpManager *manager;
 @end
 

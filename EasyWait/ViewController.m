@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.shareObject = [HttpManager sharedManager];
+    self.manager = [HttpManager sharedManager];
     self.myobject = [CommonObject sharedObject];
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = self.view.bounds;
@@ -46,29 +46,35 @@
     [super didReceiveMemoryWarning];
 }
 
--(void)stopLoader
-{
-    [self performSegueWithIdentifier:@"otpSegue" sender:@"otpSegue"];
-}
 
 - (IBAction)MobileBTN:(id)sender {
     NSString *mobileNumber = self.mobiletxtfield.text;
-        if (mobileNumber ==nil && [mobileNumber isEqualToString:@""])
+        if (mobileNumber == nil && [mobileNumber isEqualToString:@""])
         {
-            
+            [self.myobject showAlert:@"Error" andTitle:@"Please Enter Valid Mobile Number" onView:self];
         }
     else
     {
-        
+        [self.manager getRequestWithCallBack:nil andUrl:[NSString stringWithFormat:@"%@%@%@",BASEURL,LOGIN,mobileNumber] withCallback:^(BOOL wasSuccessful, NSDictionary *dict) {
+            if (wasSuccessful) {
+                NSLog(@"%@",dict);
+                [self performSegueWithIdentifier:@"otpSegue" sender:dict];
+            } else {
+                [self.view makeToast:@"Something went Wrong ,We are working on it !!!" duration:2.0 position:CSToastPositionCenter];
+            }
+        }];
     }
-    //[self performSegueWithIdentifier:@"otpSegue" sender:@"otpSegue"];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    otpViewController *otpviewController=[segue destinationViewController];
+    otpViewController *otp=[segue destinationViewController];
         if ([segue.identifier isEqualToString:@"otpSegue"])
     {
-        
+        NSDictionary *response = (NSDictionary *)sender;
+        otp.mobileNumber = _mobiletxtfield.text;
+        otp.otp_start = response[@"otp_start"];
+        otp.keymatch = response[@"keymatch"];
+        otp.service = response[@"service"];
     }
 
 }

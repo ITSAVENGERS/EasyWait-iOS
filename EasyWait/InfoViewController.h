@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommonObject.h"
+#import "HttpManager.h"
+#import "MyLoader.h"
 
 @interface InfoViewController : UIViewController
 {
     NSString *infoNumber;
 }
+@property CommonObject *myobject;
+@property HttpManager *manager;
 @end

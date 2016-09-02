@@ -9,7 +9,7 @@
 #import "CommonObject.h"
 
 NSString *const BASEURL = @"http://ewait.lkfans.org/api/";
-NSString *const LOGIN = @"/login";
+NSString *const LOGIN = @"vendor/register/";
 NSString *const OTP_VERIFY = @"ADDRESS";
 NSString *const SET_NAME = @"PROPERTY";
 NSString *const NEXT_TURN = @"NEARBY";
