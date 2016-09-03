@@ -22,6 +22,9 @@
 		56FA06CC1C3E3A3F00511157 /* EasyWaitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FA06CB1C3E3A3F00511157 /* EasyWaitUITests.m */; };
 		577EC956FA494837E5BC4607 /* libPods-EasyWaitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F45735BEF0BC9FD804DB576D /* libPods-EasyWaitTests.a */; };
 		725E4D6C7EC95EEE7F67A5C1 /* libPods-EasyWait.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D860F3B0C38FB4CFC3AACED /* libPods-EasyWait.a */; };
+		82087ACF1D7A87E900F1C0FC /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82087ACE1D7A87E900F1C0FC /* ListViewController.m */; };
+		82087AD21D7A87FD00F1C0FC /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82087AD11D7A87FD00F1C0FC /* DetailsViewController.m */; };
+		82087AD81D7A8A7E00F1C0FC /* ListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 82087AD71D7A8A7E00F1C0FC /* ListTableViewCell.m */; };
 		827B60791D79F57300BDCDEA /* HttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 827B60781D79F57300BDCDEA /* HttpManager.m */; };
 		827B607E1D79F5BC00BDCDEA /* MyLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 827B607B1D79F5BC00BDCDEA /* MyLoader.m */; };
 		827B607F1D79F5BC00BDCDEA /* CommonObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 827B607D1D79F5BC00BDCDEA /* CommonObject.m */; };
@@ -75,6 +78,12 @@
 		56FA06CB1C3E3A3F00511157 /* EasyWaitUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EasyWaitUITests.m; sourceTree = "<group>"; };
 		56FA06CD1C3E3A3F00511157 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D860F3B0C38FB4CFC3AACED /* libPods-EasyWait.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EasyWait.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		82087ACD1D7A87E900F1C0FC /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		82087ACE1D7A87E900F1C0FC /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		82087AD01D7A87FD00F1C0FC /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		82087AD11D7A87FD00F1C0FC /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		82087AD61D7A8A7E00F1C0FC /* ListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableViewCell.h; sourceTree = "<group>"; };
+		82087AD71D7A8A7E00F1C0FC /* ListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTableViewCell.m; sourceTree = "<group>"; };
 		827B60771D79F57300BDCDEA /* HttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpManager.h; sourceTree = "<group>"; };
 		827B60781D79F57300BDCDEA /* HttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpManager.m; sourceTree = "<group>"; };
 		827B607A1D79F5BC00BDCDEA /* MyLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLoader.h; sourceTree = "<group>"; };
@@ -133,20 +142,10 @@
 		56A4CEE91C9934810098AFF9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				56F455CB1CC2B5D5008197F3 /* MasterViewController.h */,
-				56F455CC1CC2B5D5008197F3 /* MasterViewController.m */,
-				56F455CE1CC2B5E7008197F3 /* SideBarViewController.h */,
-				56F455CF1CC2B5E7008197F3 /* SideBarViewController.m */,
-				828C79B81D7A2A1F00822600 /* ChooseViewController.h */,
-				828C79B91D7A2A1F00822600 /* ChooseViewController.m */,
-				56FA06AC1C3E3A3F00511157 /* ViewController.h */,
-				56FA06AD1C3E3A3F00511157 /* ViewController.m */,
-				56F0A8B61C74F6EE00BC66C2 /* otpViewController.h */,
-				56F0A8B71C74F6EE00BC66C2 /* otpViewController.m */,
-				56EFB8581C3EEF710073CED9 /* NextViewController.h */,
-				56EFB8591C3EEF710073CED9 /* NextViewController.m */,
-				56A05E571C40B06600472FEA /* InfoViewController.h */,
-				56A05E581C40B06600472FEA /* InfoViewController.m */,
+				82087AD41D7A882500F1C0FC /* Selection Controller */,
+				82087ACC1D7A87CB00F1C0FC /* Side Bar */,
+				82087AD31D7A880700F1C0FC /* Vender Module */,
+				82087AD51D7A884200F1C0FC /* Customer Module */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -234,6 +233,54 @@
 				56FA06CD1C3E3A3F00511157 /* Info.plist */,
 			);
 			path = EasyWaitUITests;
+			sourceTree = "<group>";
+		};
+		82087ACC1D7A87CB00F1C0FC /* Side Bar */ = {
+			isa = PBXGroup;
+			children = (
+				56F455CB1CC2B5D5008197F3 /* MasterViewController.h */,
+				56F455CC1CC2B5D5008197F3 /* MasterViewController.m */,
+				56F455CE1CC2B5E7008197F3 /* SideBarViewController.h */,
+				56F455CF1CC2B5E7008197F3 /* SideBarViewController.m */,
+			);
+			name = "Side Bar";
+			sourceTree = "<group>";
+		};
+		82087AD31D7A880700F1C0FC /* Vender Module */ = {
+			isa = PBXGroup;
+			children = (
+				56FA06AC1C3E3A3F00511157 /* ViewController.h */,
+				56FA06AD1C3E3A3F00511157 /* ViewController.m */,
+				56F0A8B61C74F6EE00BC66C2 /* otpViewController.h */,
+				56F0A8B71C74F6EE00BC66C2 /* otpViewController.m */,
+				56EFB8581C3EEF710073CED9 /* NextViewController.h */,
+				56EFB8591C3EEF710073CED9 /* NextViewController.m */,
+				56A05E571C40B06600472FEA /* InfoViewController.h */,
+				56A05E581C40B06600472FEA /* InfoViewController.m */,
+			);
+			name = "Vender Module";
+			sourceTree = "<group>";
+		};
+		82087AD41D7A882500F1C0FC /* Selection Controller */ = {
+			isa = PBXGroup;
+			children = (
+				828C79B81D7A2A1F00822600 /* ChooseViewController.h */,
+				828C79B91D7A2A1F00822600 /* ChooseViewController.m */,
+			);
+			name = "Selection Controller";
+			sourceTree = "<group>";
+		};
+		82087AD51D7A884200F1C0FC /* Customer Module */ = {
+			isa = PBXGroup;
+			children = (
+				82087ACD1D7A87E900F1C0FC /* ListViewController.h */,
+				82087ACE1D7A87E900F1C0FC /* ListViewController.m */,
+				82087AD61D7A8A7E00F1C0FC /* ListTableViewCell.h */,
+				82087AD71D7A8A7E00F1C0FC /* ListTableViewCell.m */,
+				82087AD01D7A87FD00F1C0FC /* DetailsViewController.h */,
+				82087AD11D7A87FD00F1C0FC /* DetailsViewController.m */,
+			);
+			name = "Customer Module";
 			sourceTree = "<group>";
 		};
 		AD73D5E71C6CA1F7E9EAEC62 /* Pods */ = {
@@ -520,7 +567,10 @@
 				56EFB85A1C3EEF710073CED9 /* NextViewController.m in Sources */,
 				56FA06AB1C3E3A3F00511157 /* AppDelegate.m in Sources */,
 				56A05E591C40B06600472FEA /* InfoViewController.m in Sources */,
+				82087AD81D7A8A7E00F1C0FC /* ListTableViewCell.m in Sources */,
 				828C79BA1D7A2A1F00822600 /* ChooseViewController.m in Sources */,
+				82087ACF1D7A87E900F1C0FC /* ListViewController.m in Sources */,
+				82087AD21D7A87FD00F1C0FC /* DetailsViewController.m in Sources */,
 				827B607E1D79F5BC00BDCDEA /* MyLoader.m in Sources */,
 				56FA06A81C3E3A3F00511157 /* main.m in Sources */,
 			);

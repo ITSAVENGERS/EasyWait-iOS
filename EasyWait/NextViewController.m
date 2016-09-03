@@ -27,7 +27,7 @@
     gradient.frame = self.view.bounds;
     gradient.colors = [NSArray arrayWithObjects: (id)[[UIColor colorWithRed:0/255.0 green:195/255.0 blue:147/255.0 alpha:1.0] CGColor], (id)[[UIColor whiteColor] CGColor], nil];
     [self.view.layer insertSublayer:gradient atIndex:0];
-    
+    self.counterDisplay.layer.borderWidth = 1.0;
     counterValue=0;
     [super viewDidLoad];
 }
@@ -70,11 +70,6 @@
             [self.view makeToast:@"Something went Wrong ,We are working on it !!!" duration:2.0 position:CSToastPositionCenter];
         }
     }];
-}
-- (IBAction)infoButtonPressed:(id)sender {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    InfoViewController *info = [storyboard instantiateViewControllerWithIdentifier:@"info"];
-    [self.navigationController pushViewController:info animated:YES];
 }
 
 @end

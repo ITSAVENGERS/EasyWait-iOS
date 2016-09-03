@@ -53,17 +53,9 @@
         [self.manager getRequestWithCallBack:nil andUrl:url withCallback:^(BOOL wasSuccessful, NSDictionary *dict) {
             [MyLoader hideLoadingView];
             if (wasSuccessful) {
-                NSString *startTime = [self convertTime:[[dict objectForKey:@"starttm"] description]];
-                NSString *timeNow = [self convertTime:[[dict objectForKey:@"tmnow"] description]];
-                NSString *updateTime = [self convertTime:[[dict objectForKey:@"updtm"] description]];
-                [self.booking_open setText:[dict objectForKey:@"bookings_open"]];
-                [self.counter setText:[[dict objectForKey:@"counter"] description]];
-                [self.queue setText:[[dict objectForKey:@"qsize"] description]];
-                [self.stime setText:startTime];
-                //NSString *mytimenow = [dict objectForKey:@"tmnow"];
-                [self.timenow setText:timeNow];
-                //[self.timenow setText:@"8:40 AM"];
-                [self.updatetime setText:updateTime];
+                [self.cell setText:[[dict objectForKey:@"cell"]description]];
+                [self.found setText:[[dict objectForKey:@"found"]description]];
+                [self.username setText:[[dict objectForKey:@"name"]description]];
             } else {
                 [self.view makeToast:@"Something went Wrong ,We are working on it !!!" duration:2.0 position:CSToastPositionCenter];
             }
@@ -82,9 +74,18 @@
         [self.manager getRequestWithCallBack:nil andUrl:url withCallback:^(BOOL wasSuccessful, NSDictionary *dict) {
             [MyLoader hideLoadingView];
             if (wasSuccessful) {
-                [self.cell setText:[[dict objectForKey:@"cell"]description]];
-                [self.found setText:[[dict objectForKey:@"found"]description]];
-                [self.username setText:[[dict objectForKey:@"name"]description]];
+                
+                NSString *startTime = [self convertTime:[[dict objectForKey:@"starttm"] description]];
+                NSString *timeNow = [self convertTime:[[dict objectForKey:@"tmnow"] description]];
+                NSString *updateTime = [self convertTime:[[dict objectForKey:@"updtm"] description]];
+                [self.booking_open setText:[dict objectForKey:@"bookings_open"]];
+                [self.counter setText:[[dict objectForKey:@"counter"] description]];
+                [self.queue setText:[[dict objectForKey:@"qsize"] description]];
+                [self.stime setText:startTime];
+                //NSString *mytimenow = [dict objectForKey:@"tmnow"];
+                [self.timenow setText:timeNow];
+                //[self.timenow setText:@"8:40 AM"];
+                [self.updatetime setText:updateTime];
             } else {
                 [self.view makeToast:@"Something went Wrong ,We are working on it !!!" duration:2.0 position:CSToastPositionCenter];
             }
