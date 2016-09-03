@@ -54,6 +54,7 @@
             [MyLoader hideLoadingView];
             if (wasSuccessful) {
                 token = [dict[@"token"] description];
+                self.setName.hidden = NO;
             } else {
                 [self.view makeToast:@"Something went Wrong ,We are working on it !!!" duration:2.0 position:CSToastPositionCenter];
             }

@@ -17,39 +17,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Da-pb-IzC">
-                                <rect key="frame" x="250" y="176" width="100" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cyy-1l-g52">
+                                <rect key="frame" x="0.0" y="200" width="600" height="200"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Da-pb-IzC">
+                                        <rect key="frame" x="50" y="0.0" width="500" height="50"/>
+                                        <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="jBD-ju-GRW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="vendor">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="OGm-fc-HXv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UU3-Uc-Flq">
+                                        <rect key="frame" x="50" y="150" width="500" height="50"/>
+                                        <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="uou-n4-hXL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="Customer">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="2mJ-d0-PZT" kind="show" id="YmU-jt-dht"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="8QJ-qc-eqv"/>
-                                    <constraint firstAttribute="height" constant="30" id="oUK-il-UQN"/>
+                                    <constraint firstAttribute="trailing" secondItem="8Da-pb-IzC" secondAttribute="trailing" constant="50" id="2BB-ve-nUr"/>
+                                    <constraint firstItem="8Da-pb-IzC" firstAttribute="top" secondItem="cyy-1l-g52" secondAttribute="top" id="5gl-Mb-jnc"/>
+                                    <constraint firstItem="UU3-Uc-Flq" firstAttribute="leading" secondItem="cyy-1l-g52" secondAttribute="leading" constant="50" id="9jI-3o-5uF"/>
+                                    <constraint firstAttribute="trailing" secondItem="UU3-Uc-Flq" secondAttribute="trailing" constant="50" id="Old-3C-NGB"/>
+                                    <constraint firstAttribute="height" constant="200" id="QTR-n9-lIn"/>
+                                    <constraint firstAttribute="bottom" secondItem="UU3-Uc-Flq" secondAttribute="bottom" id="SDB-a0-ZuP"/>
+                                    <constraint firstItem="8Da-pb-IzC" firstAttribute="leading" secondItem="cyy-1l-g52" secondAttribute="leading" constant="50" id="hxO-gD-3Ca"/>
                                 </constraints>
-                                <state key="normal" title="vendor">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="OGm-fc-HXv"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UU3-Uc-Flq">
-                                <rect key="frame" x="250" y="236" width="100" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="CMX-Hp-la3"/>
-                                    <constraint firstAttribute="height" constant="30" id="naY-UA-XKZ"/>
-                                </constraints>
-                                <state key="normal" title="Customer">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="2mJ-d0-PZT" kind="show" id="YmU-jt-dht"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="UU3-Uc-Flq" firstAttribute="top" secondItem="8Da-pb-IzC" secondAttribute="bottom" constant="30" id="4DU-gy-1Cn"/>
-                            <constraint firstItem="UU3-Uc-Flq" firstAttribute="centerX" secondItem="dGo-YD-AV3" secondAttribute="centerX" id="NjC-I1-ZfP"/>
-                            <constraint firstItem="8Da-pb-IzC" firstAttribute="centerX" secondItem="dGo-YD-AV3" secondAttribute="centerX" id="hoL-TL-CMc"/>
-                            <constraint firstItem="8Da-pb-IzC" firstAttribute="top" secondItem="Jm7-wh-cdz" secondAttribute="bottom" constant="112" id="qC2-ss-dEP"/>
+                            <constraint firstItem="cyy-1l-g52" firstAttribute="centerX" secondItem="dGo-YD-AV3" secondAttribute="centerX" id="2Ef-8R-QUT"/>
+                            <constraint firstAttribute="trailing" secondItem="cyy-1l-g52" secondAttribute="trailing" id="UxA-2q-D0m"/>
+                            <constraint firstItem="cyy-1l-g52" firstAttribute="leading" secondItem="dGo-YD-AV3" secondAttribute="leading" id="oxm-aB-b9C"/>
+                            <constraint firstItem="cyy-1l-g52" firstAttribute="centerY" secondItem="dGo-YD-AV3" secondAttribute="centerY" id="von-S4-tAo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2Hg-PI-FHZ"/>
